@@ -3,9 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document TEST3</title>
+    <title>Tide Tracker PoC</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h2 { color: #003366; border-bottom: 2px solid #003366; padding-bottom: 10px; }
+        .tide-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .tide-type { font-weight: bold; text-transform: uppercase; }
+        .high { color: #d9534f; }
+        .low { color: #5bc0de; }
+        .error { color: red; font-weight: bold; }
+    </style>
 </head>
 <body>
-    
+
+<div class="container">
+    <h2>Galveston Pier 21 Tides</h2>
+    <div id="tide-data">Loading tide predictions...</div>
+</div>
+
+<script>
+    async function fetchTides() {
+        const url = "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?date=today&station=8771450&product=predictions&datum=STND&time_zone=lst&interval=hilo&units=english&application=USACE_Sholders&format=json";
+        
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error("Network response was not ok");
+            
+            const data = await response.json();
+            displayTides(data.predictions);
+        } catch (error) {
+            document.getElementById('tide-data').innerHTML = `<p class="error">Error fetching data: ${error.message}</p>`;
+        }
+    }
+
+    function displayTides(predictions) {
+        const container = document.getElementById('tide-data');
+        if (!predictions || predictions.length === 0) {
+            container.innerHTML = "No tide data found for today.";
+            return;
+        }
+
+        let html = '';
+        predictions.forEach(p => {
+            const typeClass = p.type === 'H' ? 'high' : 'low';
+            const typeLabel = p.type === 'H' ? 'High Tide' : 'Low Tide';
+            
+            html += `
+                <div class="tide-row">
+                    <span class="tide-type ${typeClass}">${typeLabel}</span>
+                    <span>${p.t}</span>
+                    <span><strong>${p.v} ft</strong></span>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+    }
+
+    fetchTides();
+</script>
+
 </body>
 </html>
