@@ -1,0 +1,111 @@
+:root {
+    --bg: #f0f2f5;
+    --card-bg: #ffffff;
+    --primary: #003366;
+    --high-tide: #e63946;
+    --low-tide: #457b9d;
+    --text-main: #1d3557;
+    --text-muted: #6c757d;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: var(--primary);
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 5px;
+}
+
+/* The "Robust" Card Style */
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.tide-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.tide-row:last-child {
+    border-bottom: none;
+}
+
+.tide-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.tide-type {
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.tide-type.high { color: var(--high-tide); }
+.tide-type.low { color: var(--low-tide); }
+
+.tide-time {
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+.tide-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Loading State */
+.loader {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
