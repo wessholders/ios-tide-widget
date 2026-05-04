@@ -22,6 +22,15 @@ async function getTideData() {
     } catch (e) { return null; }
 }
 
+/**
+ * Helper to convert "YYYY-MM-DD HH:MM" to minutes since start of day
+ */
+function getTimeMinutes(timeStr) {
+    const timePart = timeStr.split(' ')[1]; // Extracts "HH:MM"
+    const [hrs, mins] = timePart.split(':').map(Number);
+    return (hrs * 60) + mins;
+}
+
 function getSmoothPath(points) {
     if (!points || points.length < 2) return "";
     let d = `M ${points[0].x} ${points[0].y}`;
@@ -37,29 +46,38 @@ function getSmoothPath(points) {
 function drawChart(obsData, predData) {
     const container = document.getElementById('chart-container');
     const width = 400, height = 150;
-    const padL = 35, padB = 25, padT = 10, padR = 10;
+    const padL = 35, padB = 25, padT = 10, padR = 15;
     const drawW = width - padL - padR;
     const drawH = height - padT - padB;
 
     if (!obsData || !predData) return;
 
+    // Calculate Y-scale based on both datasets
     const all = [...obsData.map(d => parseFloat(d.v)), ...predData.map(d => parseFloat(d.v))];
     const min = Math.min(...all), max = Math.max(...all), range = (max - min) || 1;
 
-    const map = (data) => data.map((d, i) => ({
-        x: (i / (data.length - 1)) * drawW + padL,
-        y: drawH - ((parseFloat(d.v) - min) / range) * drawH + padT
-    }));
+    /**
+     * Updated Map Logic: 
+     * X is now calculated as (Current Minutes / 1440 total minutes in a day)
+     */
+    const mapToTimeScale = (data) => data.map((d) => {
+        const minutes = getTimeMinutes(d.t);
+        return {
+            x: (minutes / 1440) * drawW + padL,
+            y: drawH - ((parseFloat(d.v) - min) / range) * drawH + padT
+        };
+    });
 
-    const obsPoints = map(obsData);
-    const predPoints = map(predData);
+    const obsPoints = mapToTimeScale(obsData);
+    const predPoints = mapToTimeScale(predData);
 
+    // Axis Labels
     const yTicks = [min, (min + max) / 2, max];
-    const xIdx = [0, Math.floor(predData.length/2), predData.length - 1];
+    const xLabels = ["00:00", "06:00", "12:00", "18:00", "23:59"];
 
     container.innerHTML = `
         <svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet">
-            <!-- Grid & Y-Axis -->
+            <!-- Y-Axis Ticks & Grid -->
             ${yTicks.map(v => {
                 const y = drawH - ((v - min) / range) * drawH + padT;
                 return `
@@ -68,15 +86,17 @@ function drawChart(obsData, predData) {
                 `;
             }).join('')}
 
-            <!-- X-Axis -->
-            ${xIdx.map(idx => {
-                const x = (idx / (predData.length - 1)) * drawW + padL;
-                const time = predData[idx].t.split(' ')[1];
-                return `<text class="axis-label" x="${x}" y="${height - 5}" text-anchor="middle">${time}</text>`;
+            <!-- X-Axis Labels (Fixed Time Scale) -->
+            ${xLabels.map((label, i) => {
+                const [h, m] = label.split(':').map(Number);
+                const x = ((h * 60 + m) / 1440) * drawW + padL;
+                return `<text class="axis-label" x="${x}" y="${height - 5}" text-anchor="middle">${label}</text>`;
             }).join('')}
 
-            <!-- Lines -->
+            <!-- Predictions (Dashed - Full Day) -->
             <path d="${getSmoothPath(predPoints)}" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" />
+            
+            <!-- Observed (Solid - Ends at Current Time) -->
             <path d="${getSmoothPath(obsPoints)}" fill="none" stroke="#3b82f6" stroke-width="3" />
         </svg>
     `;
