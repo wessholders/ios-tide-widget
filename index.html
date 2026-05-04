@@ -3,31 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NOAA Tides and Currents Tracker">
-    <title>Coastal Data Tracker</title>
+    <title>Tide Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header class="app-header">
-        <h1>🌊 Coastal Data Tracker</h1>
-        <p>Galveston Pier 21 (Station 8771450)</p>
-    </header>
 
-    <main class="app-main">
-        <section class="data-section" aria-labelledby="tide-heading">
-            <h2 id="tide-heading">Today's Tide Predictions</h2>
-            
-            <div id="tide-container" class="tide-container">
-                <!-- A loading spinner is shown by default until JS takes over -->
-                <div class="loader" aria-label="Loading tide data"></div>
-            </div>
-        </section>
-    </main>
+    <div class="app-container">
+        <header>
+            <h1>Galveston Pier 21</h1>
+            <p class="subtitle">Station 8771450 • Today</p>
+        </header>
 
-    <footer class="app-footer">
-        <p>Data provided by NOAA Tides & Currents API</p>
-    </footer>
+        <div id="tide-display" class="card">
+            <div class="loader"></div>
+            <!-- Data will be injected here -->
+        </div>
 
-    <script src="scripts.js" type="module"></script>
+        <footer>
+            <p>Source: NOAA Tides & Currents</p>
+        </footer>
+    </div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
