@@ -6,11 +6,10 @@ const API_CONFIG = {
 
 async function getComparisonData() {
     const common = `&station=${API_CONFIG.station}&time_zone=lst&units=english&datum=MLLW&format=json&application=${API_CONFIG.app}`;
-    
     const urls = [
-        `${API_CONFIG.base}?product=predictions&interval=hilo&date=today${common}`, // For List
-        `${API_CONFIG.base}?product=predictions&date=today${common}`,               // Continuous Pred
-        `${API_CONFIG.base}?product=water_level&date=today${common}`               // Observed
+        `${API_CONFIG.base}?product=predictions&interval=hilo&date=today${common}`,
+        `${API_CONFIG.base}?product=predictions&date=today${common}`,
+        `${API_CONFIG.base}?product=water_level&date=today${common}`
     ];
 
     try {
@@ -20,10 +19,7 @@ async function getComparisonData() {
             pred: (await predRes.json()).predictions,
             obs: (await obsRes.json()).data
         };
-    } catch (e) {
-        console.error("Fetch Error:", e);
-        return null;
-    }
+    } catch (e) { return null; }
 }
 
 function generatePath(points) {
@@ -40,22 +36,46 @@ function generatePath(points) {
 
 function drawChart(obsData, predData) {
     const container = document.getElementById('chart-container');
-    const width = 400, height = 150, padding = 15;
+    const width = 400, height = 150;
+    // Increased padding for labels
+    const padL = 35, padB = 25, padT = 10, padR = 10; 
+    const drawW = width - padL - padR;
+    const drawH = height - padT - padB;
 
-    // Combine all values to find a universal scale
     const allValues = [...obsData.map(d => parseFloat(d.v)), ...predData.map(d => parseFloat(d.v))];
     const min = Math.min(...allValues), max = Math.max(...allValues), range = max - min || 1;
 
     const mapPoints = (data) => data.map((d, i) => ({
-        x: (i / (data.length - 1)) * (width - padding * 2) + padding,
-        y: height - ((parseFloat(d.v) - min) / range) * (height - padding * 2) - padding
+        x: (i / (data.length - 1)) * drawW + padL,
+        y: drawH - ((parseFloat(d.v) - min) / range) * drawH + padT
     }));
 
     const obsPoints = mapPoints(obsData);
     const predPoints = mapPoints(predData);
 
+    // Generate Y-Axis Ticks (Min, Mid, Max)
+    const yTicks = [min, (min + max) / 2, max].map(v => ({
+        val: `${v.toFixed(1)}ft`,
+        y: drawH - ((v - min) / range) * drawH + padT
+    }));
+
+    // Generate X-Axis Ticks (4 Time Intervals)
+    const xIdx = [0, Math.floor(predData.length/3), Math.floor(2*predData.length/3), predData.length-1];
+    const xTicks = xIdx.map(idx => ({
+        label: predData[idx].t.split(' ')[1], // Get HH:MM
+        x: (idx / (predData.length - 1)) * drawW + padL
+    }));
+
     container.innerHTML = `
         <svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet">
+            <!-- Grid Lines -->
+            ${yTicks.map(t => `<line class="grid-line" x1="${padL}" y1="${t.y}" x2="${width - padR}" y2="${t.y}" />`).join('')}
+            
+            <!-- Axis Labels -->
+            ${yTicks.map(t => `<text class="axis-text" x="${padL - 5}" y="${t.y + 3}" text-anchor="end">${t.val}</text>`).join('')}
+            ${xTicks.map(t => `<text class="axis-text" x="${t.x}" y="${height - 5}" text-anchor="middle">${t.label}</text>`).join('')}
+            
+            <!-- Data Paths -->
             <path class="path-pred" d="${generatePath(predPoints)}" />
             <path class="path-obs" d="${generatePath(obsPoints)}" />
         </svg>
