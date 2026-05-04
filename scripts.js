@@ -1,59 +1,96 @@
-const TIDE_CONFIG = {
+const CONFIG = {
     station: '8771450',
-    app: 'USACE_Sholders',
-    endpoint: 'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter'
+    app: 'IOS_Tides_App',
+    baseUrl: 'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter'
 };
 
-async function getTideData() {
-    const params = new URLSearchParams({
-        date: 'today',
-        station: TIDE_CONFIG.station,
-        product: 'predictions',
-        datum: 'STND',
-        time_zone: 'lst',
-        interval: 'hilo',
-        units: 'english',
-        application: TIDE_CONFIG.app,
-        format: 'json'
-    });
+/**
+ * Fetch data for both High/Low predictions and observed Water Levels
+ */
+async function getCoastalData() {
+    const common = `&station=${CONFIG.station}&time_zone=lst&units=english&format=json&application=${CONFIG.app}`;
+    
+    const urls = [
+        `${CONFIG.baseUrl}?product=predictions&datum=MLLW&interval=hilo&date=today${common}`,
+        `${CONFIG.baseUrl}?product=water_level&datum=STND&date=today${common}`
+    ];
 
     try {
-        const response = await fetch(`${TIDE_CONFIG.endpoint}?${params}`);
-        if (!response.ok) throw new Error('API request failed');
-        const data = await response.json();
-        return data.predictions;
+        const [tideRes, waterRes] = await Promise.all(urls.map(url => fetch(url)));
+        const tideData = await tideRes.json();
+        const waterData = await waterRes.json();
+        
+        return { 
+            predictions: tideData.predictions, 
+            observations: waterData.data 
+        };
     } catch (err) {
-        console.error(err);
+        console.error("Data Load Error:", err);
         return null;
     }
 }
 
-function renderTides(predictions) {
-    const display = document.getElementById('tide-display');
-    
-    if (!predictions) {
-        display.innerHTML = `<p style="color:red; text-align:center;">Unable to load data.</p>`;
+/**
+ * Creates a "SUPER simple" SVG line graph from water level data
+ */
+function drawSimpleChart(data) {
+    const container = document.getElementById('chart-container');
+    if (!data || data.length === 0) {
+        container.innerHTML = "";
         return;
     }
 
-    display.innerHTML = predictions.map(p => {
-        const isHigh = p.type === 'H';
-        return `
-            <div class="tide-row">
-                <div class="tide-info">
-                    <span class="tide-type ${isHigh ? 'high' : 'low'}">
-                        ${isHigh ? '▲ High' : '▼ Low'}
-                    </span>
-                    <span class="tide-time">${p.t}</span>
-                </div>
-                <div class="tide-value">${p.v} ft</div>
-            </div>
-        `;
-    }).join('');
+    const width = 400;
+    const height = 120;
+    const padding = 10;
+
+    // Normalize data for the SVG box
+    const values = data.map(d => parseFloat(d.v));
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const range = max - min;
+
+    const points = values.map((v, i) => {
+        const x = (i / (values.length - 1)) * (width - (padding * 2)) + padding;
+        const y = height - ((v - min) / range) * (height - (padding * 2)) - padding;
+        return `${x},${y}`;
+    }).join(' ');
+
+    container.innerHTML = `
+        <svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet">
+            <polyline class="tide-line" points="${points}" />
+        </svg>
+    `;
 }
 
-// Start
+/**
+ * Renders the High/Low list
+ */
+function renderTideList(predictions) {
+    const display = document.getElementById('tide-display');
+    if (!predictions) {
+        display.innerHTML = "<p>Error loading predictions.</p>";
+        return;
+    }
+
+    display.innerHTML = predictions.map(p => `
+        <div class="tide-row">
+            <div class="tide-label">
+                <span class="tide-type ${p.type === 'H' ? 'high' : 'low'}">
+                    ${p.type === 'H' ? 'High Tide' : 'Low Tide'}
+                </span>
+                <span class="tide-time">${p.t}</span>
+            </div>
+            <div class="tide-value">${p.v} ft</div>
+        </div>
+    `).join('');
+}
+
+// Initialize
 document.addEventListener('DOMContentLoaded', async () => {
-    const data = await getTideData();
-    renderTides(data);
+    const allData = await getCoastalData();
+    if (allData) {
+        drawSimpleChart(allData.observations);
+        renderTideList(allData.predictions);
+    }
 });
