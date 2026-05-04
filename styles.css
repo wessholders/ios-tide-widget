@@ -1,41 +1,17 @@
-:root {
-    --bg: #f8fafc;
-    --card-bg: #ffffff;
-    --primary: #0f172a;
-    --obs-color: #3b82f6;
-    --pred-color: #94a3b8;
-    --high: #ef4444;
-    --low: #0ea5e9;
-    --text-muted: #64748b;
+/* ... keep previous styles ... */
+
+.axis-text {
+    font-size: 10px;
+    fill: var(--text-muted);
+    font-weight: 500;
 }
 
-body { font-family: -apple-system, system-ui, sans-serif; background: var(--bg); display: flex; justify-content: center; padding: 40px 15px; margin: 0; }
-.app-container { width: 100%; max-width: 420px; }
+.grid-line {
+    stroke: #f1f5f9;
+    stroke-width: 1;
+}
 
-header { text-align: center; margin-bottom: 1.5rem; }
-h1 { font-size: 1.25rem; color: var(--primary); margin: 0; }
-.subtitle { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
-
-.card { background: var(--card-bg); border-radius: 24px; padding: 24px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
-
-/* Legend Styles */
-.chart-legend { display: flex; justify-content: center; gap: 15px; margin-bottom: 10px; font-size: 0.75rem; font-weight: 600; color: var(--text-muted); }
-.legend-item { display: flex; align-items: center; gap: 5px; }
-.dot { width: 8px; height: 8px; border-radius: 50%; }
-.dot.obs { background: var(--obs-color); }
-.dot.pred { background: var(--pred-color); border: 1px dashed #64748b; }
-
-.chart-container { width: 100%; height: 160px; margin-bottom: 20px; }
-.path-obs { fill: none; stroke: var(--obs-color); stroke-width: 3; stroke-linecap: round; }
-.path-pred { fill: none; stroke: var(--pred-color); stroke-width: 2; stroke-dasharray: 4 4; stroke-linecap: round; }
-
-.tide-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-top: 1px solid #f1f5f9; }
-.tide-label { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; }
-.tide-label.H { color: var(--high); }
-.tide-label.L { color: var(--low); }
-.tide-time { font-size: 0.9rem; font-weight: 600; display: block; color: var(--primary); }
-.tide-val { font-size: 1rem; font-weight: 700; }
-
-.loader { border: 3px solid #f3f3f3; border-top: 3px solid var(--obs-color); border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; margin: 60px auto; }
-@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-footer { text-align: center; margin-top: 20px; font-size: 0.65rem; color: var(--text-muted); }
+.tick-line {
+    stroke: #e2e8f0;
+    stroke-width: 1;
+}
