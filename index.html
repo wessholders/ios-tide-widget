@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tide Tracker</title>
+    <title>Tide & Water Level Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,16 +11,23 @@
     <div class="app-container">
         <header>
             <h1>Galveston Pier 21</h1>
-            <p class="subtitle">Station 8771450 • Today</p>
+            <p class="subtitle">Station 8771450 • MLLW Datum</p>
         </header>
 
-        <div id="tide-display" class="card">
-            <div class="loader"></div>
-            <!-- Data will be injected here -->
+        <div class="card">
+            <!-- Graph Section -->
+            <div id="chart-container" class="chart-container">
+                <div class="loader"></div>
+            </div>
+
+            <!-- List Section -->
+            <div id="tide-display">
+                <!-- Data will be injected here -->
+            </div>
         </div>
 
         <footer>
-            <p>Source: NOAA Tides & Currents</p>
+            <p>NOAA Tides & Currents API • USACE Project</p>
         </footer>
     </div>
 
