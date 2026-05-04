@@ -4,33 +4,24 @@ const CONFIG = {
     base: 'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter'
 };
 
-/**
- * Robust Date Formatting for NOAA (YYYYMMDD)
- */
 function getNOAADateRange() {
     const now = new Date();
     const yesterday = new Date(now); yesterday.setDate(now.getDate() - 1);
     const tomorrow = new Date(now); tomorrow.setDate(now.getDate() + 1);
-
     const format = (d) => {
         const y = d.getFullYear();
         const m = String(d.getMonth() + 1).padStart(2, '0');
         const day = String(d.getDate()).padStart(2, '0');
         return `${y}${m}${day}`;
     };
-
     return { begin: format(yesterday), end: format(tomorrow) };
 }
 
-/**
- * Parses NOAA time "YYYY-MM-DD HH:MM" into UTC-style ms
- */
 function parseNOAATime(timeStr) {
     if (!timeStr) return 0;
     const [datePart, timePart] = timeStr.split(' ');
     const [y, m, d] = datePart.split('-').map(Number);
     const [hr, min] = timePart.split(':').map(Number);
-    // Note: Creating date object based on local machine time
     return new Date(y, m - 1, d, hr, min).getTime();
 }
 
@@ -45,7 +36,6 @@ async function getTideData() {
     };
 
     console.group("⚓ NOAA API Fetching");
-    console.log("Date Range:", dates);
     
     try {
         const [hRes, pRes, oRes] = await Promise.all([
@@ -54,15 +44,9 @@ async function getTideData() {
             fetch(urls.obs).then(r => r.json())
         ]);
 
-        // Check if NOAA returned an error message in any payload
         [hRes, pRes, oRes].forEach((res, i) => {
-            if (res.error) {
-                console.error(`API Error in Request ${i}:`, res.error.message);
-                throw new Error(res.error.message);
-            }
+            if (res.error) throw new Error(res.error.message);
         });
-
-        console.log("Raw Payloads Received:", { hRes, pRes, oRes });
 
         const nowMs = new Date().getTime();
         const twelveHoursMs = 12 * 60 * 60 * 1000;
@@ -70,16 +54,11 @@ async function getTideData() {
         const endWindow = nowMs + twelveHoursMs;
 
         const filterToWindow = (dataArray, label) => {
-            if (!Array.isArray(dataArray)) {
-                console.warn(`Warning: ${label} is not an array.`, dataArray);
-                return [];
-            }
-            const filtered = dataArray.filter(d => {
+            if (!Array.isArray(dataArray)) return [];
+            return dataArray.filter(d => {
                 const t = parseNOAATime(d.t);
                 return t >= startWindow && t <= endWindow;
             });
-            console.log(`Filtered ${label}: ${filtered.length} entries remaining.`);
-            return filtered;
         };
 
         const result = {
@@ -91,7 +70,6 @@ async function getTideData() {
 
         console.groupEnd();
         return result;
-
     } catch (e) {
         console.groupEnd();
         renderError(e.message);
@@ -104,12 +82,12 @@ function drawChart(data) {
     const { obs, pred, window } = data;
     
     if (!pred || pred.length < 2) {
-        container.innerHTML = "<p style='text-align:center; padding-top:40px;'>No prediction data for this window.</p>";
+        container.innerHTML = "<p style='text-align:center; padding-top:40px;'>No prediction data.</p>";
         return;
     }
 
     const width = 400, height = 150;
-    const padL = 35, padB = 25, padT = 10, padR = 15;
+    const padL = 40, padB = 25, padT = 10, padR = 15;
     const drawW = width - padL - padR, drawH = height - padT - padB;
 
     const allVals = [...obs.map(d => parseFloat(d.v)), ...pred.map(d => parseFloat(d.v))];
@@ -140,12 +118,12 @@ function drawChart(data) {
 
     container.innerHTML = `
         <svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet">
-            <!-- Y-Axis Ticks -->
+            <!-- Y-Axis Ticks (Rounded to Hundredths) -->
             ${[min, (min+max)/2, max].map(v => {
                 const y = drawH - ((v - min) / range) * drawH + padT;
                 return `
                     <line class="grid-line" x1="${padL}" y1="${y}" x2="${width - padR}" y2="${y}" stroke="#f1f5f9" />
-                    <text class="axis-label" x="${padL-5}" y="${y+3}" text-anchor="end" fill="#64748b" style="font-size:10px;">${v.toFixed(1)}</text>
+                    <text class="axis-label" x="${padL-5}" y="${y+3}" text-anchor="end" fill="#64748b" style="font-size:10px;">${v.toFixed(2)}</text>
                 `;
             }).join('')}
 
@@ -165,28 +143,26 @@ function drawChart(data) {
 }
 
 function renderError(msg) {
-    const chart = document.getElementById('chart-container');
-    const list = document.getElementById('tide-display');
-    chart.innerHTML = `<div style="color:red; font-size:12px; text-align:center; padding:20px;">⚠️ Error: ${msg}</div>`;
-    list.innerHTML = "";
+    document.getElementById('chart-container').innerHTML = `<div style="color:red; font-size:12px; text-align:center; padding:20px;">⚠️ Error: ${msg}</div>`;
 }
 
 function renderList(hilo) {
     const el = document.getElementById('tide-display');
     if (!hilo || hilo.length === 0) { el.innerHTML = "<p style='text-align:center; padding:10px;'>No extremes in window.</p>"; return; }
+    
     el.innerHTML = hilo.map(p => `
         <div class="tide-row">
             <div>
                 <span class="tide-type ${p.type}">${p.type === 'H' ? '▲ High' : '▼ Low'}</span>
                 <span class="tide-time">${p.t.split(' ')[1]}</span>
             </div>
-            <div class="tide-val">${p.v} ft</div>
+            <!-- Value rounded to hundredths -->
+            <div class="tide-val">${parseFloat(p.v).toFixed(2)} <small>ft</small></div>
         </div>
     `).join('');
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log("App Initialized. Current Time:", new Date().toString());
     const data = await getTideData();
     if (data) {
         drawChart(data);
