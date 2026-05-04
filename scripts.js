@@ -1,96 +1,85 @@
-const CONFIG = {
+const API_CONFIG = {
     station: '8771450',
     app: 'IOS_Tides_App',
-    baseUrl: 'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter'
+    base: 'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter'
 };
 
-/**
- * Fetch data for both High/Low predictions and observed Water Levels
- */
-async function getCoastalData() {
-    const common = `&station=${CONFIG.station}&time_zone=lst&units=english&format=json&application=${CONFIG.app}`;
+async function getComparisonData() {
+    const common = `&station=${API_CONFIG.station}&time_zone=lst&units=english&datum=MLLW&format=json&application=${API_CONFIG.app}`;
     
     const urls = [
-        `${CONFIG.baseUrl}?product=predictions&datum=MLLW&interval=hilo&date=today${common}`,
-        `${CONFIG.baseUrl}?product=water_level&datum=STND&date=today${common}`
+        `${API_CONFIG.base}?product=predictions&interval=hilo&date=today${common}`, // For List
+        `${API_CONFIG.base}?product=predictions&date=today${common}`,               // Continuous Pred
+        `${API_CONFIG.base}?product=water_level&date=today${common}`               // Observed
     ];
 
     try {
-        const [tideRes, waterRes] = await Promise.all(urls.map(url => fetch(url)));
-        const tideData = await tideRes.json();
-        const waterData = await waterRes.json();
-        
-        return { 
-            predictions: tideData.predictions, 
-            observations: waterData.data 
+        const [hiloRes, predRes, obsRes] = await Promise.all(urls.map(u => fetch(u)));
+        return {
+            hilo: (await hiloRes.json()).predictions,
+            pred: (await predRes.json()).predictions,
+            obs: (await obsRes.json()).data
         };
-    } catch (err) {
-        console.error("Data Load Error:", err);
+    } catch (e) {
+        console.error("Fetch Error:", e);
         return null;
     }
 }
 
-/**
- * Creates a "SUPER simple" SVG line graph from water level data
- */
-function drawSimpleChart(data) {
-    const container = document.getElementById('chart-container');
-    if (!data || data.length === 0) {
-        container.innerHTML = "";
-        return;
+function generatePath(points) {
+    if (!points.length) return "";
+    let d = `M ${points[0].x} ${points[0].y}`;
+    for (let i = 0; i < points.length - 1; i++) {
+        const xc = (points[i].x + points[i + 1].x) / 2;
+        const yc = (points[i].y + points[i + 1].y) / 2;
+        d += ` Q ${points[i].x} ${points[i].y} ${xc} ${yc}`;
     }
+    d += ` L ${points[points.length - 1].x} ${points[points.length - 1].y}`;
+    return d;
+}
 
-    const width = 400;
-    const height = 120;
-    const padding = 10;
+function drawChart(obsData, predData) {
+    const container = document.getElementById('chart-container');
+    const width = 400, height = 150, padding = 15;
 
-    // Normalize data for the SVG box
-    const values = data.map(d => parseFloat(d.v));
-    const min = Math.min(...values);
-    const max = Math.max(...values);
-    const range = max - min;
+    // Combine all values to find a universal scale
+    const allValues = [...obsData.map(d => parseFloat(d.v)), ...predData.map(d => parseFloat(d.v))];
+    const min = Math.min(...allValues), max = Math.max(...allValues), range = max - min || 1;
 
-    const points = values.map((v, i) => {
-        const x = (i / (values.length - 1)) * (width - (padding * 2)) + padding;
-        const y = height - ((v - min) / range) * (height - (padding * 2)) - padding;
-        return `${x},${y}`;
-    }).join(' ');
+    const mapPoints = (data) => data.map((d, i) => ({
+        x: (i / (data.length - 1)) * (width - padding * 2) + padding,
+        y: height - ((parseFloat(d.v) - min) / range) * (height - padding * 2) - padding
+    }));
+
+    const obsPoints = mapPoints(obsData);
+    const predPoints = mapPoints(predData);
 
     container.innerHTML = `
         <svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet">
-            <polyline class="tide-line" points="${points}" />
+            <path class="path-pred" d="${generatePath(predPoints)}" />
+            <path class="path-obs" d="${generatePath(obsPoints)}" />
         </svg>
     `;
 }
 
-/**
- * Renders the High/Low list
- */
-function renderTideList(predictions) {
-    const display = document.getElementById('tide-display');
-    if (!predictions) {
-        display.innerHTML = "<p>Error loading predictions.</p>";
-        return;
-    }
-
-    display.innerHTML = predictions.map(p => `
+function renderList(hilo) {
+    const el = document.getElementById('tide-display');
+    if (!hilo) return;
+    el.innerHTML = hilo.map(p => `
         <div class="tide-row">
-            <div class="tide-label">
-                <span class="tide-type ${p.type === 'H' ? 'high' : 'low'}">
-                    ${p.type === 'H' ? 'High Tide' : 'Low Tide'}
-                </span>
+            <div>
+                <span class="tide-label ${p.type}">${p.type === 'H' ? '▲ High' : '▼ Low'}</span>
                 <span class="tide-time">${p.t}</span>
             </div>
-            <div class="tide-value">${p.v} ft</div>
+            <div class="tide-val">${p.v} ft</div>
         </div>
     `).join('');
 }
 
-// Initialize
 document.addEventListener('DOMContentLoaded', async () => {
-    const allData = await getCoastalData();
-    if (allData) {
-        drawSimpleChart(allData.observations);
-        renderTideList(allData.predictions);
+    const data = await getComparisonData();
+    if (data) {
+        drawChart(data.obs, data.pred);
+        renderList(data.hilo);
     }
 });
