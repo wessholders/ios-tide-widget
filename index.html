@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tide Comparison Tool</title>
+    <title>Tide Tracker Pro</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,27 +11,27 @@
     <div class="app-container">
         <header>
             <h1>Galveston Pier 21</h1>
-            <p class="subtitle">Comparison: Observed vs. Predicted (MLLW)</p>
+            <p class="subtitle">Observed vs. Predicted (MLLW)</p>
         </header>
 
         <div class="card">
             <!-- Legend -->
-            <div class="chart-legend">
+            <div class="legend">
                 <span class="legend-item"><span class="dot obs"></span> Observed</span>
                 <span class="legend-item"><span class="dot pred"></span> Predicted</span>
             </div>
 
-            <!-- Graph Section -->
+            <!-- Chart -->
             <div id="chart-container" class="chart-container">
                 <div class="loader"></div>
             </div>
 
-            <!-- List Section -->
+            <!-- List -->
             <div id="tide-display"></div>
         </div>
 
         <footer>
-            <p>NOAA Tides & Currents • MLLW Datum</p>
+            <p>NOAA Tides & Currents API</p>
         </footer>
     </div>
 
