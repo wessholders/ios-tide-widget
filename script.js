@@ -1,122 +1,59 @@
-/**
- * Configuration Object
- * Centralizing API parameters makes scaling easier if you want to add dynamic station selection later.
- */
-const CONFIG = {
-    API_BASE_URL: 'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter',
-    DEFAULT_STATION: '8771450',
-    APP_NAME: 'USACE_Sholders'
+const TIDE_CONFIG = {
+    station: '8771450',
+    app: 'USACE_Sholders',
+    endpoint: 'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter'
 };
 
-/**
- * Dynamically builds the NOAA API endpoint URL.
- */
-function buildApiUrl(stationId = CONFIG.DEFAULT_STATION) {
+async function getTideData() {
     const params = new URLSearchParams({
         date: 'today',
-        station: stationId,
+        station: TIDE_CONFIG.station,
         product: 'predictions',
         datum: 'STND',
         time_zone: 'lst',
         interval: 'hilo',
         units: 'english',
-        application: CONFIG.APP_NAME,
+        application: TIDE_CONFIG.app,
         format: 'json'
     });
-    return `${CONFIG.API_BASE_URL}?${params.toString()}`;
-}
 
-/**
- * Handles the asynchronous network request and parses the JSON.
- */
-async function fetchTideData() {
-    const url = buildApiUrl();
     try {
-        const response = await fetch(url);
-        
-        if (!response.ok) {
-            throw new Error(`Network Error: ${response.status} ${response.statusText}`);
-        }
-        
+        const response = await fetch(`${TIDE_CONFIG.endpoint}?${params}`);
+        if (!response.ok) throw new Error('API request failed');
         const data = await response.json();
-        
-        if (data.error) {
-            throw new Error(data.error.message || 'The NOAA API returned an error.');
-        }
-        
-        return data.predictions || [];
-    } catch (error) {
-        console.error("Fetch Data Failure:", error);
-        throw error;
+        return data.predictions;
+    } catch (err) {
+        console.error(err);
+        return null;
     }
 }
 
-/**
- * Generates DOM elements securely and efficiently using a DocumentFragment.
- */
 function renderTides(predictions) {
-    const container = document.getElementById('tide-container');
-    container.innerHTML = ''; // Remove the loader
-
-    if (!predictions || predictions.length === 0) {
-        container.innerHTML = '<div class="error-message">No tide data available for today.</div>';
+    const display = document.getElementById('tide-display');
+    
+    if (!predictions) {
+        display.innerHTML = `<p style="color:red; text-align:center;">Unable to load data.</p>`;
         return;
     }
 
-    const fragment = document.createDocumentFragment();
-
-    predictions.forEach(prediction => {
-        const isHigh = prediction.type === 'H';
-        
-        // Create Row Container
-        const row = document.createElement('div');
-        row.className = 'tide-row';
-
-        // Create Type Element (High/Low)
-        const typeEl = document.createElement('span');
-        typeEl.className = `tide-type ${isHigh ? 'high' : 'low'}`;
-        typeEl.textContent = isHigh ? '▲ High Tide' : '▼ Low Tide';
-
-        // Create Time Element
-        const timeEl = document.createElement('span');
-        timeEl.className = 'tide-time';
-        timeEl.textContent = prediction.t;
-
-        // Create Value Element
-        const valueEl = document.createElement('span');
-        valueEl.className = 'tide-value';
-        valueEl.textContent = `${Number(prediction.v).toFixed(2)} ft`;
-
-        // Assemble row
-        row.appendChild(typeEl);
-        row.appendChild(timeEl);
-        row.appendChild(valueEl);
-        
-        fragment.appendChild(row);
-    });
-
-    container.appendChild(fragment);
+    display.innerHTML = predictions.map(p => {
+        const isHigh = p.type === 'H';
+        return `
+            <div class="tide-row">
+                <div class="tide-info">
+                    <span class="tide-type ${isHigh ? 'high' : 'low'}">
+                        ${isHigh ? '▲ High' : '▼ Low'}
+                    </span>
+                    <span class="tide-time">${p.t}</span>
+                </div>
+                <div class="tide-value">${p.v} ft</div>
+            </div>
+        `;
+    }).join('');
 }
 
-/**
- * Renders an error message directly to the UI for the user.
- */
-function renderError(message) {
-    const container = document.getElementById('tide-container');
-    container.innerHTML = `<div class="error-message">⚠️ Data retrieval failed:<br>${message}</div>`;
-}
-
-/**
- * Bootstraps the application.
- */
-async function initApp() {
-    try {
-        const predictions = await fetchTideData();
-        renderTides(predictions);
-    } catch (error) {
-        renderError(error.message);
-    }
-}
-
-// Execute initialization once the HTML is fully parsed
-document.addEventListener('DOMContentLoaded', initApp);
+// Start
+document.addEventListener('DOMContentLoaded', async () => {
+    const data = await getTideData();
+    renderTides(data);
+});
