@@ -4,3 +4,6 @@ https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json
 
 Use this api to get all tide predictions for the next +- 1 day. Can do math to get the low and High tide time.
 https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20260503&end_date=20260506&station=8771450&product=predictions&datum=MLLW&time_zone=lst&units=english&format=json
+
+Use this API to get sunrise sunset times, but take the XY fromt the tidal station data:
+https://api.weather.gov/points/29,-95
