@@ -1,1 +1,2 @@
-
+This json could be used to find all tidal stations I may be interested in guerying and making a simplke display map:
+https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json
