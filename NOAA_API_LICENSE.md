@@ -16,3 +16,5 @@ Internal Use Only
 Provider is, voluntarily and without financial compensation, providing gridded bathymetric data to the National Oceanic and Atmospheric Administration (NOAA). The data will be for internal use only by NOAA and its contractors and affiliates, to the extent permitted under Federal laws and regulations.
 
 NOAA will not integrate Provider's Data into the Office of Coast Survey's source database, nor will NOAA create any derivative products, for example, merging with other datasets to create products derived from the database, such as electronic navigational charts, mesh generated products for marine modeling (flooding models, tsunami inundation, VDATUM water level models, for example), and precision navigation products (S-102). The Provider's Data will be used for internal NOAA purposes, including hydrographic survey planning, and hydrographic data gap analysis for Seabed 2030 initiatives.
+
+For more information, please visit the link [here](https://nauticalcharts.noaa.gov/data/data-licensing.html)
