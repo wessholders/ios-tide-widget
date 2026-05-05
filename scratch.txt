@@ -1,2 +1,6 @@
 This json could be used to find all tidal stations I may be interested in guerying and making a simplke display map:
 https://api.tidesandcurrents.noaa.gov/mdapi/prod/webapi/stations.json
+
+
+Use this api to get all tide predictions for the next +- 1 day. Can do math to get the low and High tide time.
+https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20260503&end_date=20260506&station=8771450&product=predictions&datum=MLLW&time_zone=lst&units=english&format=json
