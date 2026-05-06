@@ -33,23 +33,6 @@ h1 { font-size: 1.3rem; margin: 0; font-weight: 800; }
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-/* Tide List Styles */
-.tide-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-}
-/* Styling for 'NEXT EVENT' label */
-.tide-meta { font-size: 0.6rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; margin-bottom: 2px; }
-.tide-type { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; }
-.tide-type.H { color: var(--high); }
-.tide-type.L { color: var(--low); }
-.tide-time { font-size: 1rem; font-weight: 600; }
-.tide-val { font-size: 1.2rem; font-weight: 700; }
-
-.divider { border: 0; border-top: 1px solid var(--border); margin: 15px 0; }
-
 /* Legend & Chart Styles */
 .legend { display: flex; justify-content: center; gap: 15px; margin-bottom: 12px; font-size: 0.7rem; font-weight: 600; color: var(--text-muted); }
 .legend-item { display: flex; align-items: center; gap: 6px; }
@@ -57,9 +40,25 @@ h1 { font-size: 1.3rem; margin: 0; font-weight: 800; }
 .dot.obs { background: var(--blue); }
 .dot.pred { border: 1px dashed var(--gray); background: transparent; }
 
-.chart-container { width: 100%; height: 160px; }
+.chart-container { width: 100%; height: 160px; margin-bottom: 10px; }
 .axis-label { font-size: 9px; fill: var(--text-muted); font-weight: 600; }
 .grid-line { stroke: var(--border); stroke-width: 1; }
+
+.divider { border: 0; border-top: 1px solid var(--border); margin: 20px 0; }
+
+/* Tide List Styles (Bottom) */
+.tide-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.tide-meta { font-size: 0.6rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase; margin-bottom: 2px; }
+.tide-type { font-size: 0.8rem; font-weight: 800; text-transform: uppercase; }
+.tide-type.H { color: var(--high); }
+.tide-type.L { color: var(--low); }
+.tide-time { font-size: 1rem; font-weight: 600; }
+.tide-val { font-size: 1.2rem; font-weight: 700; }
 
 .loader { border: 3px solid #f3f3f3; border-top: 3px solid var(--blue); border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; margin: 40px auto; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
