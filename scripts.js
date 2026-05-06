@@ -40,28 +40,16 @@ async function getTideData() {
         if (hRes.error || pRes.error || oRes.error) throw new Error("API Error");
 
         const nowMs = Date.now();
-        console.log(`Current System Time (ms): ${nowMs} -> ${new Date(nowMs).toLocaleTimeString()}`);
-
         const twelveHoursMs = 12 * 60 * 60 * 1000;
         const window = { start: nowMs - twelveHoursMs, end: nowMs + twelveHoursMs };
 
-        // Filter Chart Data
         const filterLines = (arr) => (arr || []).filter(d => {
             const t = parseNOAATime(d.t);
             return t >= window.start && t <= window.end;
         });
 
-        // Filter List Data (Next 2 Tides)
         const filterNextTwo = (arr) => {
-            console.group("Tide Filtering Debug");
-            const future = (arr || []).filter(d => {
-                const tideTime = parseNOAATime(d.t);
-                const isFuture = tideTime > nowMs;
-                console.log(`Tide at ${d.t}: ${isFuture ? "KEEP (Future)" : "DROP (Past)"}`);
-                return isFuture;
-            });
-            console.groupEnd();
-            
+            const future = (arr || []).filter(d => parseNOAATime(d.t) > nowMs);
             return future.sort((a, b) => parseNOAATime(a.t) - parseNOAATime(b.t)).slice(0, 2);
         };
 
@@ -139,7 +127,7 @@ function renderList(hilo) {
         <div class="tide-row">
             <div>
                 <div class="tide-meta">${i === 0 ? 'NEXT EVENT' : 'FOLLOWING'}</div>
-                <span class="tide-type ${p.type}">${p.type === 'H' ? '▲ High Tide' : '▼ Low Tide'}</span>
+                <span class="tide-type ${p.type}">${p.type === 'H' ? '▲ High' : '▼ Low'}</span>
                 <span class="tide-time">${p.t.split(' ')[1]}</span>
             </div>
             <div class="tide-val">${parseFloat(p.v).toFixed(2)} <small>ft</small></div>
