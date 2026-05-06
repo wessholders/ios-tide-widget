@@ -40,21 +40,29 @@ async function getTideData() {
         if (hRes.error || pRes.error || oRes.error) throw new Error("API Error");
 
         const nowMs = Date.now();
+        console.log(`Current System Time (ms): ${nowMs} -> ${new Date(nowMs).toLocaleTimeString()}`);
+
         const twelveHoursMs = 12 * 60 * 60 * 1000;
         const window = { start: nowMs - twelveHoursMs, end: nowMs + twelveHoursMs };
 
-        // 1. Chart Data: Rolling 24h window
+        // Filter Chart Data
         const filterLines = (arr) => (arr || []).filter(d => {
             const t = parseNOAATime(d.t);
             return t >= window.start && t <= window.end;
         });
 
-        // 2. List Data: STRICTLY next 2 future tides
+        // Filter List Data (Next 2 Tides)
         const filterNextTwo = (arr) => {
-            return (arr || [])
-                .filter(d => parseNOAATime(d.t) > nowMs) // Only future events
-                .sort((a, b) => parseNOAATime(a.t) - parseNOAATime(b.t)) // Soonest first
-                .slice(0, 2); // Exactly two
+            console.group("Tide Filtering Debug");
+            const future = (arr || []).filter(d => {
+                const tideTime = parseNOAATime(d.t);
+                const isFuture = tideTime > nowMs;
+                console.log(`Tide at ${d.t}: ${isFuture ? "KEEP (Future)" : "DROP (Past)"}`);
+                return isFuture;
+            });
+            console.groupEnd();
+            
+            return future.sort((a, b) => parseNOAATime(a.t) - parseNOAATime(b.t)).slice(0, 2);
         };
 
         return {
@@ -125,7 +133,7 @@ function drawChart(data) {
 
 function renderList(hilo) {
     const el = document.getElementById('tide-display');
-    if (!hilo || hilo.length === 0) { el.innerHTML = "<p>No upcoming tides.</p>"; return; }
+    if (!hilo || hilo.length === 0) { el.innerHTML = "<p style='text-align:center; color:#64748b;'>No upcoming tides.</p>"; return; }
     
     el.innerHTML = hilo.map((p, i) => `
         <div class="tide-row">
