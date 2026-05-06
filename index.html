@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coastal Observer Pro</title>
+    <title>Tide Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,11 +11,11 @@
     <div class="app-container">
         <header>
             <h1>Galveston Pier 21</h1>
-            <p class="subtitle">Station 8771450 • MLLW Datum • LST</p>
+            <p class="subtitle">Station 8771450 • Today</p>
         </header>
 
         <div class="card">
-            <!-- GRAPH SECTION (TOP) -->
+            <!-- Graph on Top -->
             <div class="legend">
                 <span class="legend-item"><span class="dot obs"></span> Observed</span>
                 <span class="legend-item"><span class="dot pred"></span> Predicted</span>
@@ -27,14 +27,12 @@
 
             <hr class="divider">
 
-            <!-- TIDE LIST SECTION (BOTTOM) -->
-            <div id="tide-display">
-                <!-- Data injects here -->
-            </div>
+            <!-- Next 2 Tides on Bottom -->
+            <div id="tide-display"></div>
         </div>
 
         <footer>
-            <p>NOAA Tides & Currents API • USACE Engineering Support</p>
+            <p>NOAA Tides & Currents API</p>
         </footer>
     </div>
 
