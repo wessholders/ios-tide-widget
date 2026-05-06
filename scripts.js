@@ -8,12 +8,7 @@ function getNOAADateRange() {
     const now = new Date();
     const yesterday = new Date(now); yesterday.setDate(now.getDate() - 1);
     const tomorrow = new Date(now); tomorrow.setDate(now.getDate() + 1);
-    const format = (d) => {
-        const y = d.getFullYear();
-        const m = String(d.getMonth() + 1).padStart(2, '0');
-        const day = String(d.getDate()).padStart(2, '0');
-        return `${y}${m}${day}`;
-    };
+    const format = (d) => `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`;
     return { begin: format(yesterday), end: format(tomorrow) };
 }
 
@@ -35,8 +30,6 @@ async function getTideData() {
         obs: `${CONFIG.base}?product=water_level&begin_date=${dates.begin}&end_date=${dates.end}${common}`
     };
 
-    console.group("⚓ NOAA API Fetching");
-    
     try {
         const [hRes, pRes, oRes] = await Promise.all([
             fetch(urls.hilo).then(r => r.json()),
@@ -44,35 +37,34 @@ async function getTideData() {
             fetch(urls.obs).then(r => r.json())
         ]);
 
-        [hRes, pRes, oRes].forEach((res, i) => {
-            if (res.error) throw new Error(res.error.message);
+        if (hRes.error || pRes.error || oRes.error) throw new Error("API Error");
+
+        const nowMs = Date.now();
+        const twelveHoursMs = 12 * 60 * 60 * 1000;
+        const window = { start: nowMs - twelveHoursMs, end: nowMs + twelveHoursMs };
+
+        // 1. Chart Data: Rolling 24h window
+        const filterLines = (arr) => (arr || []).filter(d => {
+            const t = parseNOAATime(d.t);
+            return t >= window.start && t <= window.end;
         });
 
-        const nowMs = new Date().getTime();
-        const twelveHoursMs = 12 * 60 * 60 * 1000;
-        const startWindow = nowMs - twelveHoursMs;
-        const endWindow = nowMs + twelveHoursMs;
-
-        const filterToWindow = (dataArray, label) => {
-            if (!Array.isArray(dataArray)) return [];
-            return dataArray.filter(d => {
-                const t = parseNOAATime(d.t);
-                return t >= startWindow && t <= endWindow;
-            });
+        // 2. List Data: STRICTLY next 2 future tides
+        const filterNextTwo = (arr) => {
+            return (arr || [])
+                .filter(d => parseNOAATime(d.t) > nowMs) // Only future events
+                .sort((a, b) => parseNOAATime(a.t) - parseNOAATime(b.t)) // Soonest first
+                .slice(0, 2); // Exactly two
         };
 
-        const result = {
-            hilo: filterToWindow(hRes.predictions, "HiLo Predictions"),
-            pred: filterToWindow(pRes.predictions, "Continuous Predictions"),
-            obs: filterToWindow(oRes.data, "Observations"),
-            window: { start: startWindow, end: endWindow, total: endWindow - startWindow }
+        return {
+            hilo: filterNextTwo(hRes.predictions),
+            pred: filterLines(pRes.predictions),
+            obs: filterLines(oRes.data),
+            window: window
         };
-
-        console.groupEnd();
-        return result;
     } catch (e) {
-        console.groupEnd();
-        renderError(e.message);
+        console.error(e);
         return null;
     }
 }
@@ -80,29 +72,22 @@ async function getTideData() {
 function drawChart(data) {
     const container = document.getElementById('chart-container');
     const { obs, pred, window } = data;
-    
-    if (!pred || pred.length < 2) {
-        container.innerHTML = "<p style='text-align:center; padding-top:40px;'>No prediction data.</p>";
-        return;
-    }
+    if (!pred || pred.length < 2) return;
 
     const width = 400, height = 150;
     const padL = 40, padB = 25, padT = 10, padR = 15;
     const drawW = width - padL - padR, drawH = height - padT - padB;
 
-    const allVals = [...obs.map(d => parseFloat(d.v)), ...pred.map(d => parseFloat(d.v))];
-    const min = Math.min(...allVals), max = Math.max(...allVals), range = (max - min) || 1;
+    const all = [...obs.map(d => parseFloat(d.v)), ...pred.map(d => parseFloat(d.v))];
+    const min = Math.min(...all), max = Math.max(...all), range = (max - min) || 1;
 
-    const mapToTimeline = (array) => array.map(d => {
-        const t = parseNOAATime(d.t);
-        return {
-            x: ((t - window.start) / window.total) * drawW + padL,
-            y: drawH - ((parseFloat(d.v) - min) / range) * drawH + padT
-        };
-    });
+    const map = (arr) => arr.map(d => ({
+        x: ((parseNOAATime(d.t) - window.start) / (24 * 60 * 60 * 1000)) * drawW + padL,
+        y: drawH - ((parseFloat(d.v) - min) / range) * drawH + padT
+    }));
 
-    const obsPoints = mapToTimeline(obs);
-    const predPoints = mapToTimeline(pred);
+    const obsPoints = map(obs);
+    const predPoints = map(pred);
 
     const getPath = (p) => {
         if (!p.length) return "";
@@ -118,23 +103,19 @@ function drawChart(data) {
 
     container.innerHTML = `
         <svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet">
-            <!-- Y-Axis Ticks (Rounded to Hundredths) -->
             ${[min, (min+max)/2, max].map(v => {
                 const y = drawH - ((v - min) / range) * drawH + padT;
                 return `
-                    <line class="grid-line" x1="${padL}" y1="${y}" x2="${width - padR}" y2="${y}" stroke="#f1f5f9" />
-                    <text class="axis-label" x="${padL-5}" y="${y+3}" text-anchor="end" fill="#64748b" style="font-size:10px;">${v.toFixed(2)}</text>
+                    <line class="grid-line" x1="${padL}" y1="${y}" x2="${width - padR}" y2="${y}" />
+                    <text class="axis-label" x="${padL-5}" y="${y+3}" text-anchor="end">${v.toFixed(2)}</text>
                 `;
             }).join('')}
-
-            <!-- X-Axis Labels -->
             ${[0, 1, 2, 3, 4].map(i => {
                 const tickT = new Date(window.start + i * (6 * 60 * 60 * 1000));
                 const x = (i / 4) * drawW + padL;
                 const label = (i === 2) ? "NOW" : `${String(tickT.getHours()).padStart(2, '0')}:00`;
-                return `<text class="axis-label" x="${x}" y="${height - 5}" text-anchor="middle" fill="#64748b" style="font-size:10px;">${label}</text>`;
+                return `<text class="axis-label" x="${x}" y="${height - 5}" text-anchor="middle">${label}</text>`;
             }).join('')}
-
             <line x1="${padL + drawW/2}" y1="${padT}" x2="${padL + drawW/2}" y2="${drawH + padT}" stroke="#e2e8f0" stroke-dasharray="2 2" />
             <path d="${getPath(predPoints)}" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" />
             <path d="${getPath(obsPoints)}" fill="none" stroke="#3b82f6" stroke-width="3" />
@@ -142,21 +123,17 @@ function drawChart(data) {
     `;
 }
 
-function renderError(msg) {
-    document.getElementById('chart-container').innerHTML = `<div style="color:red; font-size:12px; text-align:center; padding:20px;">⚠️ Error: ${msg}</div>`;
-}
-
 function renderList(hilo) {
     const el = document.getElementById('tide-display');
-    if (!hilo || hilo.length === 0) { el.innerHTML = "<p style='text-align:center; padding:10px;'>No extremes in window.</p>"; return; }
+    if (!hilo || hilo.length === 0) { el.innerHTML = "<p>No upcoming tides.</p>"; return; }
     
-    el.innerHTML = hilo.map(p => `
+    el.innerHTML = hilo.map((p, i) => `
         <div class="tide-row">
             <div>
-                <span class="tide-type ${p.type}">${p.type === 'H' ? '▲ High' : '▼ Low'}</span>
+                <div class="tide-meta">${i === 0 ? 'NEXT EVENT' : 'FOLLOWING'}</div>
+                <span class="tide-type ${p.type}">${p.type === 'H' ? '▲ High Tide' : '▼ Low Tide'}</span>
                 <span class="tide-time">${p.t.split(' ')[1]}</span>
             </div>
-            <!-- Value rounded to hundredths -->
             <div class="tide-val">${parseFloat(p.v).toFixed(2)} <small>ft</small></div>
         </div>
     `).join('');
