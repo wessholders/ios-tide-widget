@@ -33,7 +33,6 @@ h1 { font-size: 1.3rem; margin: 0; font-weight: 800; }
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
 
-/* Legend & Chart Styles (Top) */
 .legend { display: flex; justify-content: center; gap: 15px; margin-bottom: 12px; font-size: 0.7rem; font-weight: 600; color: var(--text-muted); }
 .legend-item { display: flex; align-items: center; gap: 6px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; }
@@ -44,10 +43,8 @@ h1 { font-size: 1.3rem; margin: 0; font-weight: 800; }
 .axis-label { font-size: 9px; fill: var(--text-muted); font-weight: 600; }
 .grid-line { stroke: var(--border); stroke-width: 1; }
 
-/* Divider */
 .divider { border: 0; border-top: 1px solid var(--border); margin: 20px 0; }
 
-/* Tide List Styles (Bottom) */
 .tide-row {
     display: flex;
     justify-content: space-between;
@@ -61,7 +58,6 @@ h1 { font-size: 1.3rem; margin: 0; font-weight: 800; }
 .tide-time { font-size: 1rem; font-weight: 600; }
 .tide-val { font-size: 1.2rem; font-weight: 700; }
 
-/* Loader */
 .loader { border: 3px solid #f3f3f3; border-top: 3px solid var(--blue); border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; margin: 40px auto; }
 @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
