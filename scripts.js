@@ -37,20 +37,22 @@ async function getTideData() {
             fetch(urls.obs).then(r => r.json())
         ]);
 
-        if (hRes.error || pRes.error || oRes.error) throw new Error("API Error");
-
         const nowMs = Date.now();
         const twelveHoursMs = 12 * 60 * 60 * 1000;
         const window = { start: nowMs - twelveHoursMs, end: nowMs + twelveHoursMs };
 
+        // 1. Filter Chart Data (+/- 12 hours)
         const filterLines = (arr) => (arr || []).filter(d => {
             const t = parseNOAATime(d.t);
             return t >= window.start && t <= window.end;
         });
 
+        // 2. Filter List Data (Next 2 Future Tides)
         const filterNextTwo = (arr) => {
-            const future = (arr || []).filter(d => parseNOAATime(d.t) > nowMs);
-            return future.sort((a, b) => parseNOAATime(a.t) - parseNOAATime(b.t)).slice(0, 2);
+            return (arr || [])
+                .filter(d => parseNOAATime(d.t) > nowMs)
+                .sort((a, b) => parseNOAATime(a.t) - parseNOAATime(b.t))
+                .slice(0, 2);
         };
 
         return {
@@ -99,6 +101,7 @@ function drawChart(data) {
 
     container.innerHTML = `
         <svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet">
+            <!-- Grid Lines -->
             ${[min, (min+max)/2, max].map(v => {
                 const y = drawH - ((v - min) / range) * drawH + padT;
                 return `
@@ -106,6 +109,7 @@ function drawChart(data) {
                     <text class="axis-label" x="${padL-5}" y="${y+3}" text-anchor="end">${v.toFixed(2)}</text>
                 `;
             }).join('')}
+            <!-- X Axis -->
             ${[0, 1, 2, 3, 4].map(i => {
                 const tickT = new Date(window.start + i * (6 * 60 * 60 * 1000));
                 const x = (i / 4) * drawW + padL;
@@ -121,13 +125,12 @@ function drawChart(data) {
 
 function renderList(hilo) {
     const el = document.getElementById('tide-display');
-    if (!hilo || hilo.length === 0) { el.innerHTML = "<p style='text-align:center; color:#64748b;'>No upcoming tides.</p>"; return; }
+    if (!hilo || hilo.length === 0) { el.innerHTML = "<p>No upcoming tides.</p>"; return; }
     
-    el.innerHTML = hilo.map((p, i) => `
+    el.innerHTML = hilo.map((p) => `
         <div class="tide-row">
             <div>
-                <div class="tide-meta">${i === 0 ? 'NEXT EVENT' : 'FOLLOWING'}</div>
-                <span class="tide-type ${p.type}">${p.type === 'H' ? '▲ High' : '▼ Low'}</span>
+                <span class="tide-type ${p.type}">${p.type === 'H' ? 'High' : 'Low'}</span>
                 <span class="tide-time">${p.t.split(' ')[1]}</span>
             </div>
             <div class="tide-val">${parseFloat(p.v).toFixed(2)} <small>ft</small></div>
