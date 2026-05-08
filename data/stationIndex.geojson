@@ -1,0 +1,4219 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -159.3561,
+                    21.9544
+                ]
+            },
+            "properties": {
+                "stationId": "1611400",
+                "name": "Nawiliwili"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.86453,
+                    21.303333
+                ]
+            },
+            "properties": {
+                "stationId": "1612340",
+                "name": "Honolulu"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.9639,
+                    21.3675
+                ]
+            },
+            "properties": {
+                "stationId": "1612401",
+                "name": "Pearl Harbor"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -157.79,
+                    21.433056
+                ]
+            },
+            "properties": {
+                "stationId": "1612480",
+                "name": "Mokuoloe"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -156.469,
+                    20.894945
+                ]
+            },
+            "properties": {
+                "stationId": "1615680",
+                "name": "Kahului, Kahului Harbor"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -155.8294,
+                    20.0366
+                ]
+            },
+            "properties": {
+                "stationId": "1617433",
+                "name": "Kawaihae"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -155.05556,
+                    19.730278
+                ]
+            },
+            "properties": {
+                "stationId": "1617760",
+                "name": "Hilo, Hilo Bay, Kuhio Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -177.36,
+                    28.211666
+                ]
+            },
+            "properties": {
+                "stationId": "1619910",
+                "name": "Sand Island, Midway Islands"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.65636,
+                    13.443389
+                ]
+            },
+            "properties": {
+                "stationId": "1630000",
+                "name": "Apra Harbor, Guam"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    144.79889,
+                    13.428333
+                ]
+            },
+            "properties": {
+                "stationId": "1631428",
+                "name": "Pago Bay, Guam"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -170.69,
+                    -14.28
+                ]
+            },
+            "properties": {
+                "stationId": "1770000",
+                "name": "Pago Pago, American Samoa"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    167.73611,
+                    8.731667
+                ]
+            },
+            "properties": {
+                "stationId": "1820000",
+                "name": "Kwajalein, Marshall Islands"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    166.6175,
+                    19.290556
+                ]
+            },
+            "properties": {
+                "stationId": "1890000",
+                "name": "Wake Island, Pacific Ocean"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -64.695724,
+                    32.370224
+                ]
+            },
+            "properties": {
+                "stationId": "2695535",
+                "name": "Bermuda Biological Station"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -64.7033,
+                    32.3734
+                ]
+            },
+            "properties": {
+                "stationId": "2695540",
+                "name": "Bermuda, St. Georges Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.494446,
+                    44.702778
+                ]
+            },
+            "properties": {
+                "stationId": "8311030",
+                "name": "Ogdensburg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.934525,
+                    44.33111
+                ]
+            },
+            "properties": {
+                "stationId": "8311062",
+                "name": "Alexandria Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -66.98289,
+                    44.90461
+                ]
+            },
+            "properties": {
+                "stationId": "8410140",
+                "name": "Eastport"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -67.21,
+                    44.6567
+                ]
+            },
+            "properties": {
+                "stationId": "8411060",
+                "name": "Cutler Farris Wharf"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -68.20428,
+                    44.392193
+                ]
+            },
+            "properties": {
+                "stationId": "8413320",
+                "name": "Bar Harbor"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.24416,
+                    43.658054
+                ]
+            },
+            "properties": {
+                "stationId": "8418150",
+                "name": "Portland"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.74111,
+                    43.079723
+                ]
+            },
+            "properties": {
+                "stationId": "8419870",
+                "name": "Seavey Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.05028,
+                    42.35389
+                ]
+            },
+            "properties": {
+                "stationId": "8443970",
+                "name": "Boston"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.1641,
+                    41.7043
+                ]
+            },
+            "properties": {
+                "stationId": "8447386",
+                "name": "Fall River"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -69.9511,
+                    41.6885
+                ]
+            },
+            "properties": {
+                "stationId": "8447435",
+                "name": "Chatham"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.9137,
+                    41.6212
+                ]
+            },
+            "properties": {
+                "stationId": "8447636",
+                "name": "New Bedford Harbor"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.67111,
+                    41.523613
+                ]
+            },
+            "properties": {
+                "stationId": "8447930",
+                "name": "Woods Hole"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.0967,
+                    41.285
+                ]
+            },
+            "properties": {
+                "stationId": "8449130",
+                "name": "Nantucket Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.32614,
+                    41.504333
+                ]
+            },
+            "properties": {
+                "stationId": "8452660",
+                "name": "Newport"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.3433,
+                    41.7167
+                ]
+            },
+            "properties": {
+                "stationId": "8452944",
+                "name": "Conimicut Light"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.400665,
+                    41.807167
+                ]
+            },
+            "properties": {
+                "stationId": "8454000",
+                "name": "Providence"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.09556,
+                    41.371666
+                ]
+            },
+            "properties": {
+                "stationId": "8461490",
+                "name": "New London"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.9083,
+                    41.2833
+                ]
+            },
+            "properties": {
+                "stationId": "8465705",
+                "name": "New Haven"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.18397,
+                    41.17582
+                ]
+            },
+            "properties": {
+                "stationId": "8467150",
+                "name": "Bridgeport"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.95944,
+                    41.048332
+                ]
+            },
+            "properties": {
+                "stationId": "8510560",
+                "name": "Montauk"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.7649,
+                    40.8103
+                ]
+            },
+            "properties": {
+                "stationId": "8516945",
+                "name": "Kings Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.01417,
+                    40.700554
+                ]
+            },
+            "properties": {
+                "stationId": "8518750",
+                "name": "The Battery"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.9392,
+                    42.0139
+                ]
+            },
+            "properties": {
+                "stationId": "8518962",
+                "name": "Turkey Point Hudson River NERRS"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.79486,
+                    42.35264
+                ]
+            },
+            "properties": {
+                "stationId": "8518979",
+                "name": "Coxsackie, Hudson River"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.0094,
+                    40.4669
+                ]
+            },
+            "properties": {
+                "stationId": "8531680",
+                "name": "Sandy Hook"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.41805,
+                    39.356667
+                ]
+            },
+            "properties": {
+                "stationId": "8534720",
+                "name": "Atlantic City"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.96,
+                    38.9683
+                ]
+            },
+            "properties": {
+                "stationId": "8536110",
+                "name": "Cape May"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.37668,
+                    39.30539
+                ]
+            },
+            "properties": {
+                "stationId": "8537121",
+                "name": "Ship John Shoal"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.8697,
+                    40.0817
+                ]
+            },
+            "properties": {
+                "stationId": "8539094",
+                "name": "Burlington, Delaware River"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.4095,
+                    39.811806
+                ]
+            },
+            "properties": {
+                "stationId": "8540433",
+                "name": "Marcus Hook"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.14198,
+                    39.933056
+                ]
+            },
+            "properties": {
+                "stationId": "8545240",
+                "name": "Philadelphia"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.079315,
+                    39.979683
+                ]
+            },
+            "properties": {
+                "stationId": "8546252",
+                "name": "Bridesburg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.75183,
+                    40.137333
+                ]
+            },
+            "properties": {
+                "stationId": "8548989",
+                "name": "Newbold"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.588974,
+                    39.582195
+                ]
+            },
+            "properties": {
+                "stationId": "8551762",
+                "name": "Delaware City"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.571945,
+                    39.558334
+                ]
+            },
+            "properties": {
+                "stationId": "8551910",
+                "name": "Reedy Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.113335,
+                    38.986668
+                ]
+            },
+            "properties": {
+                "stationId": "8555889",
+                "name": "Brandywine Shoal Light"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.11928,
+                    38.782833
+                ]
+            },
+            "properties": {
+                "stationId": "8557380",
+                "name": "Lewes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.09167,
+                    38.32833
+                ]
+            },
+            "properties": {
+                "stationId": "8570283",
+                "name": "Ocean City Inlet"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.0383,
+                    38.22
+                ]
+            },
+            "properties": {
+                "stationId": "8571421",
+                "name": "Bishops Head"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.06167,
+                    38.5725
+                ]
+            },
+            "properties": {
+                "stationId": "8571892",
+                "name": "Cambridge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.24455,
+                    39.213444
+                ]
+            },
+            "properties": {
+                "stationId": "8573364",
+                "name": "Tolchester Beach"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.81,
+                    39.52667
+                ]
+            },
+            "properties": {
+                "stationId": "8573927",
+                "name": "Chesapeake City"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.57831,
+                    39.266693
+                ]
+            },
+            "properties": {
+                "stationId": "8574680",
+                "name": "Baltimore"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.480034,
+                    38.983883
+                ]
+            },
+            "properties": {
+                "stationId": "8575512",
+                "name": "Annapolis"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.4517,
+                    38.3167
+                ]
+            },
+            "properties": {
+                "stationId": "8577330",
+                "name": "Solomons Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.02167,
+                    38.873333
+                ]
+            },
+            "properties": {
+                "stationId": "8594900",
+                "name": "Washington"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.68584,
+                    37.607777
+                ]
+            },
+            "properties": {
+                "stationId": "8631044",
+                "name": "Wachapreague"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.9884,
+                    37.1652
+                ]
+            },
+            "properties": {
+                "stationId": "8632200",
+                "name": "Kiptopeke"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.0366,
+                    38.31975
+                ]
+            },
+            "properties": {
+                "stationId": "8635027",
+                "name": "Dahlgren"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.4644,
+                    37.9961
+                ]
+            },
+            "properties": {
+                "stationId": "8635750",
+                "name": "Lewisetta"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.28978,
+                    37.6155
+                ]
+            },
+            "properties": {
+                "stationId": "8636580",
+                "name": "Windmill Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.478806,
+                    37.2265
+                ]
+            },
+            "properties": {
+                "stationId": "8637689",
+                "name": "Yorktown USCG Training Center"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.32861,
+                    36.94278
+                ]
+            },
+            "properties": {
+                "stationId": "8638610",
+                "name": "Sewells Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.0833,
+                    37.0329
+                ]
+            },
+            "properties": {
+                "stationId": "8638901",
+                "name": "CBBT, Chesapeake Channel"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.301865,
+                    36.778194
+                ]
+            },
+            "properties": {
+                "stationId": "8639348",
+                "name": "Money Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.7467,
+                    36.1833
+                ]
+            },
+            "properties": {
+                "stationId": "8651370",
+                "name": "Duck"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.548195,
+                    35.795696
+                ]
+            },
+            "properties": {
+                "stationId": "8652587",
+                "name": "Oregon Inlet Marina"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.70419,
+                    35.20861
+                ]
+            },
+            "properties": {
+                "stationId": "8654467",
+                "name": "USCG Station Hatteras"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.67066,
+                    34.71733
+                ]
+            },
+            "properties": {
+                "stationId": "8656483",
+                "name": "Beaufort, Duke Marine Lab"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.9533,
+                    34.2267
+                ]
+            },
+            "properties": {
+                "stationId": "8658120",
+                "name": "Wilmington"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.7867,
+                    34.213306
+                ]
+            },
+            "properties": {
+                "stationId": "8658163",
+                "name": "Wrightsville Beach"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.9183,
+                    33.655
+                ]
+            },
+            "properties": {
+                "stationId": "8661070",
+                "name": "Springmaid Pier"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.923615,
+                    32.780834
+                ]
+            },
+            "properties": {
+                "stationId": "8665530",
+                "name": "Charleston"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.90303,
+                    32.034695
+                ]
+            },
+            "properties": {
+                "stationId": "8670870",
+                "name": "Fort Pulaski"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.4914,
+                    30.7781
+                ]
+            },
+            "properties": {
+                "stationId": "8679598",
+                "name": "Kings Bay MSF Pier"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.46584,
+                    30.671356
+                ]
+            },
+            "properties": {
+                "stationId": "8720030",
+                "name": "Fernandina Beach"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.42789,
+                    30.398167
+                ]
+            },
+            "properties": {
+                "stationId": "8720218",
+                "name": "Mayport (Bar Pilots Dock)"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.5583,
+                    30.3867
+                ]
+            },
+            "properties": {
+                "stationId": "8720219",
+                "name": "Dames Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.6583,
+                    30.32
+                ]
+            },
+            "properties": {
+                "stationId": "8720226",
+                "name": "Southbank Riverwalk, St Johns River"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.68889,
+                    30.192417
+                ]
+            },
+            "properties": {
+                "stationId": "8720357",
+                "name": "I-295 Buckman Bridge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.5931,
+                    28.4158
+                ]
+            },
+            "properties": {
+                "stationId": "8721604",
+                "name": "Trident Pier, Port Canaveral"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.034164,
+                    26.612778
+                ]
+            },
+            "properties": {
+                "stationId": "8722670",
+                "name": "Lake Worth Pier, Atlantic Ocean"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.11667,
+                    26.081667
+                ]
+            },
+            "properties": {
+                "stationId": "8722956",
+                "name": "South Port Everglades"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.1618,
+                    25.7314
+                ]
+            },
+            "properties": {
+                "stationId": "8723214",
+                "name": "Virginia Key"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.1065,
+                    24.711
+                ]
+            },
+            "properties": {
+                "stationId": "8723970",
+                "name": "Vaca Key, Florida Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.8079,
+                    24.5557
+                ]
+            },
+            "properties": {
+                "stationId": "8724580",
+                "name": "Key West"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.7883,
+                    26.1367
+                ]
+            },
+            "properties": {
+                "stationId": "8725114",
+                "name": "NAPLES BAY, NORTH"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.87111,
+                    26.647778
+                ]
+            },
+            "properties": {
+                "stationId": "8725520",
+                "name": "Fort Myers"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.5621,
+                    27.6387
+                ]
+            },
+            "properties": {
+                "stationId": "8726384",
+                "name": "Port Manatee"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.6269,
+                    27.7606
+                ]
+            },
+            "properties": {
+                "stationId": "8726520",
+                "name": "St. Petersburg"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.5528,
+                    27.8578
+                ]
+            },
+            "properties": {
+                "stationId": "8726607",
+                "name": "Old Port Tampa"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.4214,
+                    27.9231
+                ]
+            },
+            "properties": {
+                "stationId": "8726674",
+                "name": "East Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.831665,
+                    27.978333
+                ]
+            },
+            "properties": {
+                "stationId": "8726724",
+                "name": "Clearwater Beach"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.0317,
+                    29.135
+                ]
+            },
+            "properties": {
+                "stationId": "8727520",
+                "name": "Cedar Key"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.98055,
+                    29.724445
+                ]
+            },
+            "properties": {
+                "stationId": "8728690",
+                "name": "Apalachicola"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.664444,
+                    30.149723
+                ]
+            },
+            "properties": {
+                "stationId": "8729108",
+                "name": "Panama City"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.878586,
+                    30.21375
+                ]
+            },
+            "properties": {
+                "stationId": "8729210",
+                "name": "Panama City Beach"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.2112,
+                    30.4044
+                ]
+            },
+            "properties": {
+                "stationId": "8729840",
+                "name": "Pensacola"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.075,
+                    30.25
+                ]
+            },
+            "properties": {
+                "stationId": "8735180",
+                "name": "Dauphin Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.088,
+                    30.5652
+                ]
+            },
+            "properties": {
+                "stationId": "8735391",
+                "name": "Dog River Bridge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.1139,
+                    30.4437
+                ]
+            },
+            "properties": {
+                "stationId": "8735523",
+                "name": "East Fowl River Bridge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.05811,
+                    30.6495
+                ]
+            },
+            "properties": {
+                "stationId": "8736897",
+                "name": "Coast Guard Sector Mobile"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.03961,
+                    30.70461
+                ]
+            },
+            "properties": {
+                "stationId": "8737048",
+                "name": "Mobile State Docks"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.0736,
+                    30.7819
+                ]
+            },
+            "properties": {
+                "stationId": "8737138",
+                "name": "Chickasaw Creek"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.1586,
+                    30.3766
+                ]
+            },
+            "properties": {
+                "stationId": "8738043",
+                "name": "West Fowl River Bridge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.2477,
+                    30.4057
+                ]
+            },
+            "properties": {
+                "stationId": "8739803",
+                "name": "Bayou La Batre Bridge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.56306,
+                    30.367777
+                ]
+            },
+            "properties": {
+                "stationId": "8741533",
+                "name": "Pascagoula NOAA Lab"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.3258,
+                    30.326342
+                ]
+            },
+            "properties": {
+                "stationId": "8747437",
+                "name": "Bay Waveland Yacht Club"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.258835,
+                    29.179306
+                ]
+            },
+            "properties": {
+                "stationId": "8760721",
+                "name": "Pilottown"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.4075,
+                    28.9322
+                ]
+            },
+            "properties": {
+                "stationId": "8760922",
+                "name": "Pilots Station East, S.W. Pass"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.67325,
+                    29.86811
+                ]
+            },
+            "properties": {
+                "stationId": "8761305",
+                "name": "Shell Beach"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.956665,
+                    29.263334
+                ]
+            },
+            "properties": {
+                "stationId": "8761724",
+                "name": "Grand Isle"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.113335,
+                    30.027222
+                ]
+            },
+            "properties": {
+                "stationId": "8761927",
+                "name": "New Canal Station"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.135475,
+                    29.932888
+                ]
+            },
+            "properties": {
+                "stationId": "8761955",
+                "name": "Carrollton"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.1993,
+                    29.1142
+                ]
+            },
+            "properties": {
+                "stationId": "8762075",
+                "name": "Port Fourchon, Belle Pass"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.42028,
+                    29.78861
+                ]
+            },
+            "properties": {
+                "stationId": "8762482",
+                "name": "West Bank 1, Bayou Gauche"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.23761,
+                    29.6675
+                ]
+            },
+            "properties": {
+                "stationId": "8764044",
+                "name": "Berwick, Atchafalaya River"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.3381,
+                    29.4496
+                ]
+            },
+            "properties": {
+                "stationId": "8764227",
+                "name": "LAWMA, Amerada Pass"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -91.3839,
+                    29.3675
+                ]
+            },
+            "properties": {
+                "stationId": "8764314",
+                "name": "Eugene Island, North of, Atchafalaya Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.30519,
+                    29.551695
+                ]
+            },
+            "properties": {
+                "stationId": "8766072",
+                "name": "Freshwater Canal Locks"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -93.221664,
+                    30.223612
+                ]
+            },
+            "properties": {
+                "stationId": "8767816",
+                "name": "Lake Charles"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -93.3007,
+                    30.1903
+                ]
+            },
+            "properties": {
+                "stationId": "8767961",
+                "name": "Bulk Terminal"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -93.34289,
+                    29.768167
+                ]
+            },
+            "properties": {
+                "stationId": "8768094",
+                "name": "Calcasieu Pass"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -93.93,
+                    29.8667
+                ]
+            },
+            "properties": {
+                "stationId": "8770475",
+                "name": "Port Arthur"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -93.8817,
+                    29.98
+                ]
+            },
+            "properties": {
+                "stationId": "8770520",
+                "name": "Rainbow Bridge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.985,
+                    29.681667
+                ]
+            },
+            "properties": {
+                "stationId": "8770613",
+                "name": "Morgans Point, Barbours Cut"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -95.2658,
+                    29.7263
+                ]
+            },
+            "properties": {
+                "stationId": "8770777",
+                "name": "Manchester"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.3903,
+                    29.5947
+                ]
+            },
+            "properties": {
+                "stationId": "8770808",
+                "name": "High Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -93.8418,
+                    29.6893
+                ]
+            },
+            "properties": {
+                "stationId": "8770822",
+                "name": "Texas Point, Sabine Pass"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.5133,
+                    29.515
+                ]
+            },
+            "properties": {
+                "stationId": "8770971",
+                "name": "Rollover Pass"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.91725,
+                    29.481306
+                ]
+            },
+            "properties": {
+                "stationId": "8771013",
+                "name": "Eagle Point, Galveston Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.724724,
+                    29.357462
+                ]
+            },
+            "properties": {
+                "stationId": "8771341",
+                "name": "Galveston Bay Entrance, North Jetty"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -93.72,
+                    29.469
+                ]
+            },
+            "properties": {
+                "stationId": "8771367",
+                "name": "Sabine Offshore Light"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.793304,
+                    29.31
+                ]
+            },
+            "properties": {
+                "stationId": "8771450",
+                "name": "Galveston Pier 21"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.8971,
+                    29.3026
+                ]
+            },
+            "properties": {
+                "stationId": "8771486",
+                "name": "Galveston Railroad Bridge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -95.1133,
+                    29.095
+                ]
+            },
+            "properties": {
+                "stationId": "8771972",
+                "name": "San Luis Pass"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -95.2942,
+                    28.9357
+                ]
+            },
+            "properties": {
+                "stationId": "8772471",
+                "name": "Freeport Harbor"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -95.61684,
+                    28.771639
+                ]
+            },
+            "properties": {
+                "stationId": "8772985",
+                "name": "Sargent"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -96.7124,
+                    28.4069
+                ]
+            },
+            "properties": {
+                "stationId": "8773037",
+                "name": "Seadrift"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -95.9139,
+                    28.71
+                ]
+            },
+            "properties": {
+                "stationId": "8773146",
+                "name": "Matagorda City"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -96.6098,
+                    28.6406
+                ]
+            },
+            "properties": {
+                "stationId": "8773259",
+                "name": "Port Lavaca"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -96.3883,
+                    28.4517
+                ]
+            },
+            "properties": {
+                "stationId": "8773701",
+                "name": "Port O'Connor"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -96.3301,
+                    28.4269
+                ]
+            },
+            "properties": {
+                "stationId": "8773767",
+                "name": "Matagorda Bay Entrance Channel"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -96.795,
+                    28.2283
+                ]
+            },
+            "properties": {
+                "stationId": "8774230",
+                "name": "Aransas Wildlife Refuge"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.0217,
+                    28.118305
+                ]
+            },
+            "properties": {
+                "stationId": "8774513",
+                "name": "Copano Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.04667,
+                    28.021667
+                ]
+            },
+            "properties": {
+                "stationId": "8774770",
+                "name": "Rockport"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.2735,
+                    27.8804
+                ]
+            },
+            "properties": {
+                "stationId": "8775132",
+                "name": "La Quinta Channel North"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.5207,
+                    27.8461
+                ]
+            },
+            "properties": {
+                "stationId": "8775222",
+                "name": "Viola Turning Basin"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.0725,
+                    27.8397
+                ]
+            },
+            "properties": {
+                "stationId": "8775237",
+                "name": "Port Aransas"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.0391,
+                    27.8366
+                ]
+            },
+            "properties": {
+                "stationId": "8775241",
+                "name": "Aransas, Aransas Pass"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.20895,
+                    27.818611
+                ]
+            },
+            "properties": {
+                "stationId": "8775283",
+                "name": "Enbridge, Ingleside"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.3892,
+                    27.8149
+                ]
+            },
+            "properties": {
+                "stationId": "8775296",
+                "name": "USS Lexington, Corpus Christi Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.2367,
+                    27.6333
+                ]
+            },
+            "properties": {
+                "stationId": "8775792",
+                "name": "Packery Channel"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.31811,
+                    27.484362
+                ]
+            },
+            "properties": {
+                "stationId": "8776139",
+                "name": "S. Bird Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.40517,
+                    27.297
+                ]
+            },
+            "properties": {
+                "stationId": "8776604",
+                "name": "Baffin Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.47056,
+                    26.801195
+                ]
+            },
+            "properties": {
+                "stationId": "8777812",
+                "name": "Rincon Del San Jose"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.42572,
+                    26.557638
+                ]
+            },
+            "properties": {
+                "stationId": "8778490",
+                "name": "Port Mansfield"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.2853,
+                    26.2624
+                ]
+            },
+            "properties": {
+                "stationId": "8779280",
+                "name": "Realitos Peninsula"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.1675,
+                    26.0731
+                ]
+            },
+            "properties": {
+                "stationId": "8779748",
+                "name": "South Padre Island CG Station"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.1548,
+                    26.0675
+                ]
+            },
+            "properties": {
+                "stationId": "8779749",
+                "name": "SPI Brazos Santiago"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -97.21553,
+                    26.061167
+                ]
+            },
+            "properties": {
+                "stationId": "8779770",
+                "name": "Port Isabel"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.526665,
+                    42.621113
+                ]
+            },
+            "properties": {
+                "stationId": "9014070",
+                "name": "Algonac"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.48556,
+                    42.81222
+                ]
+            },
+            "properties": {
+                "stationId": "9014080",
+                "name": "St. Clair State Police"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.44334,
+                    42.94528
+                ]
+            },
+            "properties": {
+                "stationId": "9014087",
+                "name": "Dry Dock"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.4204,
+                    42.9738
+                ]
+            },
+            "properties": {
+                "stationId": "9014090",
+                "name": "Mouth of the Black River"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.4225,
+                    43.0069
+                ]
+            },
+            "properties": {
+                "stationId": "9014098",
+                "name": "Fort Gratiot"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.87925,
+                    42.47322
+                ]
+            },
+            "properties": {
+                "stationId": "9034052",
+                "name": "St Clair Shores"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.186,
+                    42.090862
+                ]
+            },
+            "properties": {
+                "stationId": "9044020",
+                "name": "Gibraltar"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.1475,
+                    42.202305
+                ]
+            },
+            "properties": {
+                "stationId": "9044030",
+                "name": "Wyandotte"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.092636,
+                    42.298912
+                ]
+            },
+            "properties": {
+                "stationId": "9044036",
+                "name": "Fort Wayne"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.92995,
+                    42.357777
+                ]
+            },
+            "properties": {
+                "stationId": "9044049",
+                "name": "Windmill Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.33222,
+                    44.13028
+                ]
+            },
+            "properties": {
+                "stationId": "9052000",
+                "name": "Cape Vincent"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.51183,
+                    43.46417
+                ]
+            },
+            "properties": {
+                "stationId": "9052030",
+                "name": "Oswego"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -77.62575,
+                    43.26903
+                ]
+            },
+            "properties": {
+                "stationId": "9052058",
+                "name": "Rochester"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.72733,
+                    43.33839
+                ]
+            },
+            "properties": {
+                "stationId": "9052076",
+                "name": "Olcott"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.05991,
+                    43.09992
+                ]
+            },
+            "properties": {
+                "stationId": "9063007",
+                "name": "Ashland Ave"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.06136,
+                    43.08106
+                ]
+            },
+            "properties": {
+                "stationId": "9063009",
+                "name": "American Falls"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.01403,
+                    43.07689
+                ]
+            },
+            "properties": {
+                "stationId": "9063012",
+                "name": "Niagara Intake"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.89047,
+                    42.877445
+                ]
+            },
+            "properties": {
+                "stationId": "9063020",
+                "name": "Buffalo"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -79.04733,
+                    42.691307
+                ]
+            },
+            "properties": {
+                "stationId": "9063028",
+                "name": "Sturgeon Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.075836,
+                    42.15389
+                ]
+            },
+            "properties": {
+                "stationId": "9063038",
+                "name": "Erie, Lake Erie"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.28106,
+                    41.75975
+                ]
+            },
+            "properties": {
+                "stationId": "9063053",
+                "name": "Fairport"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -81.635475,
+                    41.54086
+                ]
+            },
+            "properties": {
+                "stationId": "9063063",
+                "name": "Cleveland"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.73139,
+                    41.54364
+                ]
+            },
+            "properties": {
+                "stationId": "9063079",
+                "name": "Marblehead"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.472275,
+                    41.693554
+                ]
+            },
+            "properties": {
+                "stationId": "9063085",
+                "name": "Toledo"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.25667,
+                    41.96
+                ]
+            },
+            "properties": {
+                "stationId": "9063090",
+                "name": "Fermi Power Plant"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.49331,
+                    43.141693
+                ]
+            },
+            "properties": {
+                "stationId": "9075002",
+                "name": "Lakeport"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -82.64306,
+                    43.84639
+                ]
+            },
+            "properties": {
+                "stationId": "9075014",
+                "name": "Harbor Beach"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.8468,
+                    43.6404
+                ]
+            },
+            "properties": {
+                "stationId": "9075035",
+                "name": "Essexville"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.4286,
+                    45.063
+                ]
+            },
+            "properties": {
+                "stationId": "9075065",
+                "name": "Alpena"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.72111,
+                    45.77722
+                ]
+            },
+            "properties": {
+                "stationId": "9075080",
+                "name": "Mackinaw City"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.8982,
+                    45.9925
+                ]
+            },
+            "properties": {
+                "stationId": "9075099",
+                "name": "De Tour Village"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.19119,
+                    46.264805
+                ]
+            },
+            "properties": {
+                "stationId": "9076024",
+                "name": "Rock Cut"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.20981,
+                    46.28469
+                ]
+            },
+            "properties": {
+                "stationId": "9076027",
+                "name": "West Neebish Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.30167,
+                    46.485832
+                ]
+            },
+            "properties": {
+                "stationId": "9076033",
+                "name": "Little Rapids"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.34036,
+                    46.500805
+                ]
+            },
+            "properties": {
+                "stationId": "9076060",
+                "name": "U.S. Slip"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.37261,
+                    46.50111
+                ]
+            },
+            "properties": {
+                "stationId": "9076070",
+                "name": "S.W. Pier, St. Marys River"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -86.4415,
+                    43.94736
+                ]
+            },
+            "properties": {
+                "stationId": "9087023",
+                "name": "Ludington"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -86.212776,
+                    42.773335
+                ]
+            },
+            "properties": {
+                "stationId": "9087031",
+                "name": "Holland"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.53833,
+                    41.72972
+                ]
+            },
+            "properties": {
+                "stationId": "9087044",
+                "name": "Calumet Harbor"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.88764,
+                    43.001972
+                ]
+            },
+            "properties": {
+                "stationId": "9087057",
+                "name": "Milwaukee"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.50103,
+                    44.46389
+                ]
+            },
+            "properties": {
+                "stationId": "9087068",
+                "name": "Kewaunee, Lake Michigan"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.31392,
+                    44.794693
+                ]
+            },
+            "properties": {
+                "stationId": "9087072",
+                "name": "Sturgeon Bay Canal"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.00106,
+                    44.539024
+                ]
+            },
+            "properties": {
+                "stationId": "9087077",
+                "name": "Green Bay East"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.58994,
+                    45.09589
+                ]
+            },
+            "properties": {
+                "stationId": "9087088",
+                "name": "Menominee"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.8715,
+                    45.96989
+                ]
+            },
+            "properties": {
+                "stationId": "9087096",
+                "name": "Port Inland"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.63084,
+                    46.484444
+                ]
+            },
+            "properties": {
+                "stationId": "9099004",
+                "name": "Point Iroquois"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.37861,
+                    46.545555
+                ]
+            },
+            "properties": {
+                "stationId": "9099018",
+                "name": "Marquette C.G."
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.324165,
+                    46.874443
+                ]
+            },
+            "properties": {
+                "stationId": "9099044",
+                "name": "Ontonagon"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.092026,
+                    46.77575
+                ]
+            },
+            "properties": {
+                "stationId": "9099064",
+                "name": "Duluth"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.34128,
+                    47.748554
+                ]
+            },
+            "properties": {
+                "stationId": "9099090",
+                "name": "Grand Marais, Lake Superior"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -117.17667,
+                    32.715557
+                ]
+            },
+            "properties": {
+                "stationId": "9410170",
+                "name": "San Diego"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -117.25714,
+                    32.86689
+                ]
+            },
+            "properties": {
+                "stationId": "9410230",
+                "name": "La Jolla"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.272,
+                    33.72
+                ]
+            },
+            "properties": {
+                "stationId": "9410660",
+                "name": "Los Angeles"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.5,
+                    34.0083
+                ]
+            },
+            "properties": {
+                "stationId": "9410840",
+                "name": "Santa Monica"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -119.6925,
+                    34.40459
+                ]
+            },
+            "properties": {
+                "stationId": "9411340",
+                "name": "Santa Barbara"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -120.754166,
+                    35.168888
+                ]
+            },
+            "properties": {
+                "stationId": "9412110",
+                "name": "Port San Luis"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.89139,
+                    36.60889
+                ]
+            },
+            "properties": {
+                "stationId": "9413450",
+                "name": "Monterey"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.46589,
+                    37.806305
+                ]
+            },
+            "properties": {
+                "stationId": "9414290",
+                "name": "San Francisco"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.21191,
+                    37.506813
+                ]
+            },
+            "properties": {
+                "stationId": "9414523",
+                "name": "Redwood City"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.30026,
+                    37.771954
+                ]
+            },
+            "properties": {
+                "stationId": "9414750",
+                "name": "Alameda"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4,
+                    37.9283
+                ]
+            },
+            "properties": {
+                "stationId": "9414863",
+                "name": "Richmond"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.97361,
+                    37.994167
+                ]
+            },
+            "properties": {
+                "stationId": "9415020",
+                "name": "Point Reyes"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.12519,
+                    38.034637
+                ]
+            },
+            "properties": {
+                "stationId": "9415102",
+                "name": "Martinez-Amorco Pier"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.0395,
+                    38.056
+                ]
+            },
+            "properties": {
+                "stationId": "9415144",
+                "name": "Port Chicago"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -121.5463,
+                    38.56225
+                ]
+            },
+            "properties": {
+                "stationId": "9416131",
+                "name": "Port of West Sacramento, Washington Lake"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.71108,
+                    38.914555
+                ]
+            },
+            "properties": {
+                "stationId": "9416841",
+                "name": "Arena Cove"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -124.21735,
+                    40.766907
+                ]
+            },
+            "properties": {
+                "stationId": "9418767",
+                "name": "North Spit"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -124.18439,
+                    41.74561
+                ]
+            },
+            "properties": {
+                "stationId": "9419750",
+                "name": "Crescent City"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -124.4983,
+                    42.739
+                ]
+            },
+            "properties": {
+                "stationId": "9431647",
+                "name": "Port Orford"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -124.322,
+                    43.345
+                ]
+            },
+            "properties": {
+                "stationId": "9432780",
+                "name": "Charleston"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -124.044945,
+                    44.625446
+                ]
+            },
+            "properties": {
+                "stationId": "9435380",
+                "name": "South Beach"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.918945,
+                    45.55453
+                ]
+            },
+            "properties": {
+                "stationId": "9437540",
+                "name": "Garibaldi"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.7683,
+                    46.207306
+                ]
+            },
+            "properties": {
+                "stationId": "9439040",
+                "name": "Astoria"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.405,
+                    46.16
+                ]
+            },
+            "properties": {
+                "stationId": "9439099",
+                "name": "Wauna"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.797,
+                    45.865
+                ]
+            },
+            "properties": {
+                "stationId": "9439201",
+                "name": "St Helens"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.69577,
+                    45.631172
+                ]
+            },
+            "properties": {
+                "stationId": "9440083",
+                "name": "Vancouver"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.8367,
+                    45.9867
+                ]
+            },
+            "properties": {
+                "stationId": "9440357",
+                "name": "TEMCO Kalama Terminal"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.9542,
+                    46.1061
+                ]
+            },
+            "properties": {
+                "stationId": "9440422",
+                "name": "Longview"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.4565,
+                    46.270306
+                ]
+            },
+            "properties": {
+                "stationId": "9440569",
+                "name": "Skamokawa"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -124.04628,
+                    46.28103
+                ]
+            },
+            "properties": {
+                "stationId": "9440581",
+                "name": "Cape Disappointment"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.96694,
+                    46.7075
+                ]
+            },
+            "properties": {
+                "stationId": "9440910",
+                "name": "Toke Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -124.10508,
+                    46.90431
+                ]
+            },
+            "properties": {
+                "stationId": "9441102",
+                "name": "Westport"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -124.63574,
+                    47.912838
+                ]
+            },
+            "properties": {
+                "stationId": "9442396",
+                "name": "La Push, Quillayute River"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -124.601585,
+                    48.370724
+                ]
+            },
+            "properties": {
+                "stationId": "9443090",
+                "name": "Neah Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.44,
+                    48.125
+                ]
+            },
+            "properties": {
+                "stationId": "9444090",
+                "name": "Port Angeles"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.759674,
+                    48.11122
+                ]
+            },
+            "properties": {
+                "stationId": "9444900",
+                "name": "Port Townsend"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.623,
+                    47.5617
+                ]
+            },
+            "properties": {
+                "stationId": "9445958",
+                "name": "Bremerton"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.4133,
+                    47.2667
+                ]
+            },
+            "properties": {
+                "stationId": "9446484",
+                "name": "Tacoma"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.3393,
+                    47.60264
+                ]
+            },
+            "properties": {
+                "stationId": "9447130",
+                "name": "Seattle"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.75858,
+                    48.862717
+                ]
+            },
+            "properties": {
+                "stationId": "9449424",
+                "name": "Cherry Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -123.0125,
+                    48.545277
+                ]
+            },
+            "properties": {
+                "stationId": "9449880",
+                "name": "Friday Harbor"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -131.62611,
+                    55.331944
+                ]
+            },
+            "properties": {
+                "stationId": "9450460",
+                "name": "Ketchikan"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -134.647,
+                    56.2467
+                ]
+            },
+            "properties": {
+                "stationId": "9451054",
+                "name": "Port Alexander"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -135.342,
+                    57.051693
+                ]
+            },
+            "properties": {
+                "stationId": "9451600",
+                "name": "Sitka"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -134.4106,
+                    58.2988
+                ]
+            },
+            "properties": {
+                "stationId": "9452210",
+                "name": "Juneau"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -135.328,
+                    59.4508
+                ]
+            },
+            "properties": {
+                "stationId": "9452400",
+                "name": "Skagway, Taiya Inlet"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -136.34694,
+                    58.19472
+                ]
+            },
+            "properties": {
+                "stationId": "9452634",
+                "name": "Elfin Cove"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -139.7334,
+                    59.5485
+                ]
+            },
+            "properties": {
+                "stationId": "9453220",
+                "name": "Yakutat, Yakutat Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -145.753,
+                    60.5583
+                ]
+            },
+            "properties": {
+                "stationId": "9454050",
+                "name": "Cordova"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -146.362,
+                    61.125
+                ]
+            },
+            "properties": {
+                "stationId": "9454240",
+                "name": "Valdez"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -149.42812,
+                    60.1193
+                ]
+            },
+            "properties": {
+                "stationId": "9455090",
+                "name": "Seward"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -151.7199,
+                    59.4405
+                ]
+            },
+            "properties": {
+                "stationId": "9455500",
+                "name": "Seldovia"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -151.398,
+                    60.6833
+                ]
+            },
+            "properties": {
+                "stationId": "9455760",
+                "name": "Nikiski"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -149.8904,
+                    61.2375
+                ]
+            },
+            "properties": {
+                "stationId": "9455920",
+                "name": "Anchorage"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -152.512,
+                    57.7317
+                ]
+            },
+            "properties": {
+                "stationId": "9457292",
+                "name": "Kodiak Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -154.248,
+                    56.89739
+                ]
+            },
+            "properties": {
+                "stationId": "9457804",
+                "name": "Alitak"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -160.50433,
+                    55.331722
+                ]
+            },
+            "properties": {
+                "stationId": "9459450",
+                "name": "Sand Point"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -162.32611,
+                    55.05989
+                ]
+            },
+            "properties": {
+                "stationId": "9459881",
+                "name": "King Cove"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -176.63759,
+                    51.860638
+                ]
+            },
+            "properties": {
+                "stationId": "9461380",
+                "name": "Adak Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -174.1725,
+                    52.231945
+                ]
+            },
+            "properties": {
+                "stationId": "9461710",
+                "name": "Atka"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -168.8713,
+                    52.94061
+                ]
+            },
+            "properties": {
+                "stationId": "9462450",
+                "name": "Nikolski"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -166.5403,
+                    53.879196
+                ]
+            },
+            "properties": {
+                "stationId": "9462620",
+                "name": "Unalaska"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -160.57361,
+                    55.985832
+                ]
+            },
+            "properties": {
+                "stationId": "9463502",
+                "name": "Port Moller"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -170.2852,
+                    57.1253
+                ]
+            },
+            "properties": {
+                "stationId": "9464212",
+                "name": "Village Cove, St Paul Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -160.788,
+                    63.875
+                ]
+            },
+            "properties": {
+                "stationId": "9468333",
+                "name": "Unalakleet"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -165.43964,
+                    64.49461
+                ]
+            },
+            "properties": {
+                "stationId": "9468756",
+                "name": "Nome, Norton Sound"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -164.06439,
+                    67.575806
+                ]
+            },
+            "properties": {
+                "stationId": "9491094",
+                "name": "Red Dog Dock"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -148.53166,
+                    70.41139
+                ]
+            },
+            "properties": {
+                "stationId": "9497645",
+                "name": "Prudhoe Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -64.69839,
+                    17.747694
+                ]
+            },
+            "properties": {
+                "stationId": "9751364",
+                "name": "Christiansted Harbor, St Croix"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -64.72422,
+                    18.31825
+                ]
+            },
+            "properties": {
+                "stationId": "9751381",
+                "name": "Lameshur Bay, St John"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -64.7538,
+                    17.6947
+                ]
+            },
+            "properties": {
+                "stationId": "9751401",
+                "name": "Limetree Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -64.925804,
+                    18.330584
+                ]
+            },
+            "properties": {
+                "stationId": "9751639",
+                "name": "Charlotte Amalie"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -65.302475,
+                    18.300861
+                ]
+            },
+            "properties": {
+                "stationId": "9752235",
+                "name": "Culebra"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -65.4438,
+                    18.152527
+                ]
+            },
+            "properties": {
+                "stationId": "9752621",
+                "name": "Isabel Segunda, Vieques Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -65.47136,
+                    18.09386
+                ]
+            },
+            "properties": {
+                "stationId": "9752695",
+                "name": "Esperanza, Vieques Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -65.63111,
+                    18.335278
+                ]
+            },
+            "properties": {
+                "stationId": "9753216",
+                "name": "Fajardo"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -65.833,
+                    18.055084
+                ]
+            },
+            "properties": {
+                "stationId": "9754229",
+                "name": "Yabucoa Harbor"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -66.11642,
+                    18.458944
+                ]
+            },
+            "properties": {
+                "stationId": "9755371",
+                "name": "San Juan, La Puntilla, San Juan Bay"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -66.225945,
+                    17.949083
+                ]
+            },
+            "properties": {
+                "stationId": "9755968",
+                "name": "Salinas, Bahia de Jobos"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -66.70236,
+                    18.480528
+                ]
+            },
+            "properties": {
+                "stationId": "9757811",
+                "name": "Arecibo"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -66.76661,
+                    18.005861
+                ]
+            },
+            "properties": {
+                "stationId": "9758066",
+                "name": "Guayanilla, Bahia de Guayanilla"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -67.04639,
+                    17.970112
+                ]
+            },
+            "properties": {
+                "stationId": "9759110",
+                "name": "Magueyes Island"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -67.162445,
+                    18.218834
+                ]
+            },
+            "properties": {
+                "stationId": "9759394",
+                "name": "Mayaguez"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -67.16458,
+                    18.456638
+                ]
+            },
+            "properties": {
+                "stationId": "9759413",
+                "name": "Aguadilla, Crashboat Beach"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -67.93821,
+                    18.089289
+                ]
+            },
+            "properties": {
+                "stationId": "9759938",
+                "name": "Mona Island"
+            }
+        }
+    ]
+}
