@@ -1,5 +1,5 @@
 // --- LEAFLET & MAP SETUP ---
-const map = L.map('map', { zoomControl: false }).setView([39.8283, -98.5795], 5); // Centered on US
+const map = L.map('map', { zoomControl: false, preferCanvas: true }).setView([39.8283, -98.5795], 4);
 L.control.zoom({ position: 'bottomright' }).addTo(map);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
     maxZoom: 19,
