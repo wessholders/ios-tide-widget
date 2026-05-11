@@ -1,15 +1,15 @@
 // --- LEAFLET & MAP SETUP ---
 const map = L.map('map', { zoomControl: false, preferCanvas: true }).setView([39.8283, -98.5795], 4);
 L.control.zoom({ position: 'bottomright' }).addTo(map);
-// L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-//     maxZoom: 19,
-//     attribution: '&copy; CARTO'
-// }).addTo(map);
-// Replace the CARTO tileLayer with standard OSM for testing:
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
     maxZoom: 19,
-    attribution: '&copy; OpenStreetMap'
-}).addTo(map);//TEST
+    attribution: '&copy; CARTO'
+}).addTo(map);
+// Replace the CARTO tileLayer with standard OSM for testing:
+// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     maxZoom: 19,
+//     attribution: '&copy; OpenStreetMap'
+// }).addTo(map);//TEST
 
 
 const searchableStations = [];
