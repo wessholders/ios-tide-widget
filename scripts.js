@@ -9,7 +9,7 @@ L.control.zoom({ position: 'bottomright' }).addTo(map);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; OpenStreetMap'
-}).addTo(map);
+}).addTo(map);//TEST
 
 
 const searchableStations = [];
