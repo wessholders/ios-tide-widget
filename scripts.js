@@ -1,5 +1,5 @@
 // --- LEAFLET & MAP SETUP ---
-const map = L.map('map', { zoomControl: false }).setView([39.5, -98.5], 5);
+const map = L.map('map', { zoomControl: false }).setView([39.8283, -98.5795], 4); // Centered on US
 L.control.zoom({ position: 'bottomright' }).addTo(map);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
     maxZoom: 19,
@@ -11,7 +11,7 @@ const searchInput = document.getElementById('station-search');
 const resultsContainer = document.getElementById('search-results');
 let activeStationPopup = null;
 
-// --- TIDE WIDGET LOGIC (REFACTORED) ---
+// --- TIDE WIDGET LOGIC ---
 const TIDE_CONFIG = {
     app: 'WebGIS_Tide_App',
     base: 'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter'
@@ -48,11 +48,11 @@ async function getTideData(stationId, container) {
         const [hRes, pRes, oRes] = await Promise.all([
             fetch(urls.hilo).then(r => r.json()),
             fetch(urls.pred).then(r => r.json()),
-            fetch(urls.obs).then(r => r.json())
+            fetch(urls.obs).then(r => r.json()).catch(() => ({ data: [] }))
         ]);
 
-        for (const res of [hRes, pRes, oRes]) {
-            if (res.error) throw new Error(res.error.message || `Failed to fetch data for station ${stationId}`);
+        for (const res of [hRes, pRes]) {
+            if (res.error) throw new Error(res.error.message || `Failed to fetch prediction data for station ${stationId}`);
         }
 
         const nowMs = new Date().getTime();
@@ -68,7 +68,7 @@ async function getTideData(stationId, container) {
         return {
             hilo: filterToWindow(hRes.predictions),
             pred: filterToWindow(pRes.predictions),
-            obs: filterToWindow(oRes.data),
+            obs: filterToWindow(oRes.data || []),
             window: { start: startWindow, end: endWindow, total: endWindow - startWindow }
         };
     } catch (e) {
@@ -167,10 +167,28 @@ async function initTideWidget(stationId, stationName, container) {
     }
 }
 
+// --- CUSTOM MAP CENTERING LOGIC ---
+function centerMapOnPopup(latlng, zoomLevel) {
+    const targetZoom = zoomLevel || map.getZoom();
+    const pxPoint = map.project(latlng, targetZoom);
+    
+    // Y is subtracted to move the camera UP, which pushes the marker DOWN on screen.
+    // ~190px is about half the popup height plus some padding.
+    pxPoint.y -= 190; 
+    
+    const targetLatLng = map.unproject(pxPoint, targetZoom);
+    map.flyTo(targetLatLng, targetZoom, { animate: true, duration: 0.8 });
+}
 
-// --- GEOJSON & MAP INTERACTION ---
-fetch('stationIndex.geojson')
-    .then(response => response.json())
+
+// --- GEOJSON FETCH & MAP INTERACTION ---
+fetch('./data/stationIndex.geojson')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Failed to load GeoJSON. Please ensure you are running this from a local web server (like VS Code's 'Live Server' extension), not by opening the HTML file directly.");
+        }
+        return response.json();
+    })
     .then(data => {
         L.geoJSON(data, {
             pointToLayer: (feature, latlng) => L.circleMarker(latlng, {
@@ -183,15 +201,16 @@ fetch('stationIndex.geojson')
                     const id = props.stationId || props.id;
                     const name = props.name;
 
-                    // Add to search index
                     searchableStations.push({ id: String(id), name: String(name), layer: layer });
                     
-                    // On click, create and bind the popup that will host the widget
                     layer.on('click', (e) => {
+                        centerMapOnPopup(e.latlng);
+                        
                         const popupContent = document.createElement('div');
                         activeStationPopup = L.popup({
                                 className: 'tide-widget-popup',
-                                minWidth: 420
+                                minWidth: 420,
+                                autoPan: false // Prevent Leaflet from overriding our pan
                             })
                             .setLatLng(e.latlng)
                             .setContent(popupContent)
@@ -202,26 +221,30 @@ fetch('stationIndex.geojson')
                 }
             }
         }).addTo(map);
+    })
+    .catch(error => {
+        console.error(error);
+        alert(error.message); // Make the error highly visible
     });
 
 // --- SEARCH LOGIC ---
 function openStationPopup(match) {
     const latlng = match.layer.getLatLng();
-    map.flyTo(latlng, 8, { animate: true, duration: 1.2 });
+    centerMapOnPopup(latlng, 8);
 
-    // Wait for fly-to to be mostly done, then open popup
     setTimeout(() => {
         const popupContent = document.createElement('div');
         activeStationPopup = L.popup({
                 className: 'tide-widget-popup',
-                minWidth: 420
+                minWidth: 420,
+                autoPan: false
             })
             .setLatLng(latlng)
             .setContent(popupContent)
             .openOn(map);
         
         initTideWidget(match.id, match.name, popupContent);
-    }, 1000);
+    }, 800);
 
     searchInput.value = match.name;
     resultsContainer.style.display = 'none';
