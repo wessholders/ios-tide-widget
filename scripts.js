@@ -90,4 +90,168 @@ function drawChart(data, container) {
     const min = Math.min(...allVals), max = Math.max(...allVals), range = (max - min) || 1;
 
     const mapToTimeline = (array) => array.map(d => ({
-        x: ((parseNOAATime(d.t) - wind
+        x: ((parseNOAATime(d.t) - window.start) / window.total) * drawW + padL,
+        y: drawH - ((parseFloat(d.v) - min) / range) * drawH + padT
+    }));
+    
+    const obsPoints = mapToTimeline(obs);
+    const predPoints = mapToTimeline(pred);
+
+    const getPath = (p) => {
+        if (!p.length) return "";
+        let d = `M ${p[0].x} ${p[0].y}`;
+        for (let i = 0; i < p.length - 1; i++) {
+            const xc = (p[i].x + p[i + 1].x) / 2;
+            const yc = (p[i].y + p[i + 1].y) / 2;
+            d += ` Q ${p[i].x} ${p[i].y} ${xc} ${yc}`;
+        }
+        d += ` L ${p[p.length-1].x} ${p[p.length-1].y}`;
+        return d;
+    };
+
+    container.innerHTML = `<svg viewBox="0 0 ${width} ${height}" preserveAspectRatio="xMidYMid meet">
+        ${[min, (min+max)/2, max].map(v => {
+            const y = drawH - ((v - min) / range) * drawH + padT;
+            return `<line class="grid-line" x1="${padL}" y1="${y}" x2="${width - padR}" y2="${y}" /><text class="axis-label" x="${padL-5}" y="${y+3}" text-anchor="end">${v.toFixed(2)}</text>`;
+        }).join('')}
+        ${[0, 1, 2, 3, 4].map(i => {
+            const tickT = new Date(window.start + i * (6 * 60 * 60 * 1000));
+            const x = (i / 4) * drawW + padL;
+            const label = (i === 2) ? "NOW" : `${String(tickT.getHours()).padStart(2, '0')}:00`;
+            return `<text class="axis-label" x="${x}" y="${height - 5}" text-anchor="middle">${label}</text>`;
+        }).join('')}
+        <line x1="${padL + drawW/2}" y1="${padT}" x2="${padL + drawW/2}" y2="${drawH + padT}" stroke="#e2e8f0" stroke-dasharray="2 2" />
+        <path d="${getPath(predPoints)}" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 4" />
+        <path d="${getPath(obsPoints)}" fill="none" stroke="#3b82f6" stroke-width="3" />
+    </svg>`;
+}
+
+function renderList(hilo, container) {
+    if (!hilo || hilo.length === 0) { container.innerHTML = "<p style='text-align:center; padding:10px;'>No high/low tides in window.</p>"; return; }
+    container.innerHTML = hilo.map(p => `
+        <div class="tide-row">
+            <div>
+                <span class="tide-type ${p.type}">${p.type === 'H' ? '▲ High' : '▼ Low'}</span>
+                <span class="tide-time">${p.t.split(' ')[1]}</span>
+            </div>
+            <div class="tide-val">${parseFloat(p.v).toFixed(2)} <small>ft</small></div>
+        </div>
+    `).join('');
+}
+
+function renderError(msg, container) {
+    container.innerHTML = `<div style="color:red; font-size:12px; text-align:center; padding:20px;">⚠️ Error: ${msg}</div>`;
+}
+
+async function initTideWidget(stationId, stationName, container) {
+    container.innerHTML = `
+        <div class="app-container">
+            <header>
+                <h1>${stationName}</h1>
+                <p class="subtitle">Observed vs. Predicted (MLLW)</p>
+            </header>
+            <div class="card-content">
+                <div class="legend">
+                    <span class="legend-item"><span class="dot obs"></span> Observed</span>
+                    <span class="legend-item"><span class="dot pred"></span> Predicted</span>
+                </div>
+                <div class="chart-container"><div class="loader"></div></div>
+                <div class="tide-display"></div>
+            </div>
+        </div>`;
+
+    const data = await getTideData(stationId, container);
+    if (data) {
+        drawChart(data, container.querySelector('.chart-container'));
+        renderList(data.hilo, container.querySelector('.tide-display'));
+    }
+}
+
+
+// --- GEOJSON & MAP INTERACTION ---
+fetch('stationIndex.geojson')
+    .then(response => response.json())
+    .then(data => {
+        L.geoJSON(data, {
+            pointToLayer: (feature, latlng) => L.circleMarker(latlng, {
+                radius: 5.5, fillColor: "#3b82f6", color: "#ffffff",
+                weight: 1.5, opacity: 1, fillOpacity: 0.85
+            }),
+            onEachFeature: (feature, layer) => {
+                const props = feature.properties;
+                if (props) {
+                    const id = props.stationId || props.id;
+                    const name = props.name;
+
+                    // Add to search index
+                    searchableStations.push({ id: String(id), name: String(name), layer: layer });
+                    
+                    // On click, create and bind the popup that will host the widget
+                    layer.on('click', (e) => {
+                        const popupContent = document.createElement('div');
+                        activeStationPopup = L.popup({
+                                className: 'tide-widget-popup',
+                                minWidth: 420
+                            })
+                            .setLatLng(e.latlng)
+                            .setContent(popupContent)
+                            .openOn(map);
+                        
+                        initTideWidget(id, name, popupContent);
+                    });
+                }
+            }
+        }).addTo(map);
+    });
+
+// --- SEARCH LOGIC ---
+function openStationPopup(match) {
+    const latlng = match.layer.getLatLng();
+    map.flyTo(latlng, 8, { animate: true, duration: 1.2 });
+
+    // Wait for fly-to to be mostly done, then open popup
+    setTimeout(() => {
+        const popupContent = document.createElement('div');
+        activeStationPopup = L.popup({
+                className: 'tide-widget-popup',
+                minWidth: 420
+            })
+            .setLatLng(latlng)
+            .setContent(popupContent)
+            .openOn(map);
+        
+        initTideWidget(match.id, match.name, popupContent);
+    }, 1000);
+
+    searchInput.value = match.name;
+    resultsContainer.style.display = 'none';
+}
+
+searchInput.addEventListener('input', function(e) {
+    const query = e.target.value.toLowerCase();
+    resultsContainer.innerHTML = '';
+    if (!query) { resultsContainer.style.display = 'none'; return; }
+
+    const matches = searchableStations.filter(s => 
+        s.name.toLowerCase().includes(query) || s.id.toLowerCase().includes(query)
+    ).slice(0, 6);
+
+    if (matches.length > 0) {
+        resultsContainer.style.display = 'block';
+        matches.forEach(match => {
+            const div = document.createElement('div');
+            div.className = 'result-item';
+            div.innerHTML = `<span class="result-name">${match.name}</span><span class="result-id">ID: ${match.id}</span>`;
+            div.onclick = () => openStationPopup(match);
+            resultsContainer.appendChild(div);
+        });
+    } else {
+        resultsContainer.style.display = 'none';
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (!document.getElementById('ui-header').contains(e.target)) {
+        resultsContainer.style.display = 'none';
+    }
+});
